@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Quests – Lisa Schneider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playpen+Sans:wght@600;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .project-card {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 12px 12px 0 0 #1a1a1a;
+        }
+        .project-tag {
+            background: #fdecec;
+            color: #e61e1e;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            border: 1.5px solid #e61e1e;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#f9f7f2] text-[#1a1a1a] font-inter">
+
+    <header class="w-full px-6 py-8">
+        <nav class="grid grid-cols-3 items-center max-w-xl mx-auto bg-transparent">
+            <div class="text-left">
+                <a href="projects.html" class="text-xs font-extrabold tracking-tight text-stone-800 hover:opacity-60 transition-opacity">Projects</a>
+            </div>
+            <div class="text-center flex justify-center">
+                <a href="index.html" class="inline-flex items-center justify-center border-2 border-stone-800 rounded-full p-1 hover:bg-stone-100/50 transition-colors">
+                    <canvas id="nav-particle-canvas" class="block cursor-pointer"></canvas>
+                </a>
+            </div>
+            <div class="text-right">
+                <a href="sidequests.html" class="text-xs font-extrabold tracking-tight text-stone-800 hover:opacity-60 transition-opacity">Side quests</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="w-full max-w-5xl mx-auto px-6 mt-20">
+        <section class="flex flex-col items-center text-center space-y-3 mb-16">
+            <h2 class="text-4xl md:text-5xl font-black tracking-tight uppercase">Side Quests</h2>
+            <p class="text-stone-500 font-medium text-sm max-w-md">Experiments, self-initiated prototypes, and passion projects built just for fun.</p>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto pb-20">
+            <a href="side-quest-1.html" class="project-card block bg-white rounded-[1.75rem] border-2 border-stone-800 shadow-[8px_8px_0_0_#1a1a1a] overflow-hidden group">
+                <div class="h-48 bg-stone-200 flex items-center justify-center overflow-hidden">
+                    <div class="w-full h-full bg-gradient-to-br from-stone-100 to-stone-300 flex items-center justify-center p-6">
+                        <div class="w-full h-full bg-stone-400/30 rounded-2xl border-2 border-dashed border-stone-500/40 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-stone-500/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-3">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="project-tag">Creative Coding</span>
+                        <span class="project-tag">Interaction Design</span>
+                    </div>
+                    <h3 class="text-xl font-black tracking-tight uppercase">Quest One</h3>
+                    <p class="text-sm text-stone-600 font-medium leading-relaxed">An interactive canvas experiment exploring physics-driven text, typography deformation, and responsive mouse-tracking algorithms.</p>
+                    <div class="pt-2 flex items-center gap-2 text-[#e61e1e] font-extrabold text-xs uppercase tracking-wider group-hover:gap-3 transition-all">
+                        Explore Quest
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="side-quest-2.html" class="project-card block bg-white rounded-[1.75rem] border-2 border-stone-800 shadow-[8px_8px_0_0_#1a1a1a] overflow-hidden group">
+                <div class="h-48 bg-[#e61e1e]/10 flex items-center justify-center overflow-hidden">
+                    <div class="w-full h-full bg-gradient-to-br from-[#e61e1e]/5 to-[#e61e1e]/20 flex items-center justify-center p-6">
+                        <div class="w-full h-full bg-[#e61e1e]/10 rounded-2xl border-2 border-dashed border-[#e61e1e]/30 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-[#e61e1e]/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-3">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="project-tag">UX Research</span>
+                        <span class="project-tag">Community</span>
+                    </div>
+                    <h3 class="text-xl font-black tracking-tight uppercase">Quest Two</h3>
+                    <p class="text-sm text-stone-600 font-medium leading-relaxed">A micro-concept exploring localized neighborhood connection frameworks and conversational language learning models.</p>
+                    <div class="pt-2 flex items-center gap-2 text-[#e61e1e] font-extrabold text-xs uppercase tracking-wider group-hover:gap-3 transition-all">
+                        Explore Quest
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="side-quest-3.html" class="project-card block bg-white rounded-[1.75rem] border-2 border-stone-800 shadow-[8px_8px_0_0_#1a1a1a] overflow-hidden group">
+                <div class="h-48 bg-stone-200 flex items-center justify-center overflow-hidden">
+                    <div class="w-full h-full bg-gradient-to-br from-stone-100 to-stone-300 flex items-center justify-center p-6">
+                        <div class="w-full h-full bg-stone-400/30 rounded-2xl border-2 border-dashed border-stone-500/40 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-stone-500/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-3">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="project-tag">Rapid Prototyping</span>
+                        <span class="project-tag">AI Tools</span>
+                    </div>
+                    <h3 class="text-xl font-black tracking-tight uppercase">Quest Three</h3>
+                    <p class="text-sm text-stone-600 font-medium leading-relaxed">Experimenting with hyper-fast development configurations, vibe coding mechanics, and layout modularity loops.</p>
+                    <div class="pt-2 flex items-center gap-2 text-[#e61e1e] font-extrabold text-xs uppercase tracking-wider group-hover:gap-3 transition-all">
+                        Explore Quest
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="side-quest-4.html" class="project-card block bg-white rounded-[1.75rem] border-2 border-stone-800 shadow-[8px_8px_0_0_#1a1a1a] overflow-hidden group">
+                <div class="h-48 bg-[#e61e1e]/5 flex items-center justify-center overflow-hidden">
+                    <div class="w-full h-full bg-gradient-to-br from-[#e61e1e]/5 to-[#e61e1e]/15 flex items-center justify-center p-6">
+                        <div class="w-full h-full bg-[#e61e1e]/10 rounded-2xl border-2 border-dashed border-[#e61e1e]/30 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-[#e61e1e]/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-3">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="project-tag">Sustainability</span>
+                        <span class="project-tag">Speculative Design</span>
+                    </div>
+                    <h3 class="text-xl font-black tracking-tight uppercase">Quest Four</h3>
+                    <p class="text-sm text-stone-600 font-medium leading-relaxed">Conceptual micro-framework looking at alternative urban grid solutions and hyper-local value transfers.</p>
+                    <div class="pt-2 flex items-center gap-2 text-[#e61e1e] font-extrabold text-xs uppercase tracking-wider group-hover:gap-3 transition-all">
+                        Explore Quest
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="text-center pb-16">
+            <a href="index.html" class="inline-flex items-center gap-2 text-stone-500 hover:text-stone-800 font-extrabold text-xs uppercase tracking-wider transition-colors">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 16l-4-4m0 0l4-4m-4 4h18"/></svg>
+                Back to home
+            </a>
+        </div>
+    </main>
+
+    <script src="particle-text.js"></script>
+    <footer class="w-full mt-12 py-12 flex flex-col items-center space-y-1 border-t border-stone-200/40">
+        <div class="footer-brand text-center text-stone-800 select-none">
+            lisa schneider
+        </div>
+    </footer>
+</body>
+</html>
