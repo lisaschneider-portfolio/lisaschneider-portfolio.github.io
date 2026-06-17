@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Side Quest Detail – Lisa Schneider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playpen+Sans:wght@600;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen bg-[#f9f7f2] text-[#1a1a1a] font-inter">
+
+    <header class="w-full px-6 py-8">
+        <nav class="grid grid-cols-3 items-center max-w-xl mx-auto bg-transparent">
+            <div class="text-left">
+                <a href="projects.html" class="text-xs font-extrabold tracking-tight text-stone-800 hover:opacity-60 transition-opacity">Projects</a>
+            </div>
+            <div class="text-center flex justify-center">
+                <a href="index.html" class="inline-flex items-center justify-center border-2 border-stone-800 rounded-full p-1 hover:bg-stone-100/50 transition-colors">
+                    <canvas id="nav-particle-canvas" class="block cursor-pointer"></canvas>
+                </a>
+            </div>
+            <div class="text-right">
+                <a href="sidequests.html" class="text-xs font-extrabold tracking-tight text-stone-800 hover:opacity-60 transition-opacity">Side quests</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="w-full max-w-5xl mx-auto px-6 mt-20 pb-24">
+        <a href="sidequests.html" class="inline-flex items-center gap-2 text-stone-500 hover:text-stone-800 font-extrabold text-xs uppercase tracking-wider transition-colors mb-12">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 16l-4-4m0 0l4-4m-4 4h18"/></svg>
+            Back to side quests
+        </a>
+
+        <div id="project-not-found" class="hidden rounded-[2rem] border border-red-200 bg-red-50 p-10 text-red-800 shadow-sm">
+            Side quest not found. Check the side quest ID in the URL and try again.
+        </div>
+
+        <article id="project-detail" class="hidden space-y-12 rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg">
+            <div class="space-y-8">
+                <div class="flex flex-col gap-6">
+                    <div id="project-tags" class="flex flex-wrap gap-2"></div>
+                    <div class="space-y-6">
+                        <h1 id="project-title" class="text-4xl md:text-5xl font-black tracking-tight uppercase leading-tight"></h1>
+                        <p id="project-subtitle" class="text-stone-500 font-medium text-lg max-w-2xl"></p>
+                    </div>
+                </div>
+
+                <div id="hero-image-wrapper" class="relative w-full aspect-[16/9] rounded-[2rem] border-2 border-stone-800 shadow-[8px_8px_0_0_#1a1a1a] overflow-hidden bg-stone-200 flex items-center justify-center">
+                    <img id="project-image" class="hidden w-full h-full object-cover" src="" alt="Side quest image" />
+                    <div id="hero-image-placeholder" class="absolute inset-0 flex items-center justify-center text-stone-500/70">
+                        <div class="flex flex-col items-center gap-3">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            <span class="text-sm font-bold">Add hero image here</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid gap-10">
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-black tracking-tight uppercase">Overview</h2>
+                        <p id="project-description" class="text-stone-700 leading-relaxed"></p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-black tracking-tight uppercase">Challenge</h2>
+                        <p id="project-challenge" class="text-stone-700 leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-y-2 border-stone-200 py-8">
+                        <div class="space-y-1">
+                            <p class="text-xs font-extrabold text-stone-400 uppercase tracking-wide">Role</p>
+                            <p id="detail-role" class="font-bold text-sm">Lead Designer</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-xs font-extrabold text-stone-400 uppercase tracking-wide">Timeline</p>
+                            <p id="detail-timeline" class="font-bold text-sm">TBD</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-xs font-extrabold text-stone-400 uppercase tracking-wide">Tools</p>
+                            <p id="detail-tools" class="font-bold text-sm">TBD</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-xs font-extrabold text-stone-400 uppercase tracking-wide">Client</p>
+                            <p id="detail-client" class="font-bold text-sm">Self-initiated</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-black tracking-tight uppercase">Process</h2>
+                        <p id="project-process" class="text-stone-700 leading-relaxed">A clean, thoughtful process is the core of every case study. I captured challenges, research, and outcomes with the same attention to detail as the project design.</p>
+                    </div>
+
+                    <div id="process-gallery" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-black tracking-tight uppercase">Results</h2>
+                        <p id="project-results" class="text-stone-700 leading-relaxed">The final outcome is both visual and strategic — a project that feels polished, usable, and memorable.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-8 border-t-2 border-stone-200">
+                <a href="sidequests.html" class="text-stone-500 hover:text-stone-800 text-xs font-extrabold uppercase tracking-wider transition-colors">← All Side Quests</a>
+                <div class="text-xs font-extrabold uppercase tracking-wider text-stone-400">Side Quest detail</div>
+            </div>
+        </article>
+    </main>
+
+    <script src="particle-text.js"></script>
+    <div id="video-container" class="hidden my-6">
+        <video id="local-video" controls class="w-full rounded-lg">
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <footer class="w-full py-12 flex flex-col items-center space-y-1 border-t border-stone-200/40">
+        <div class="footer-brand text-center text-stone-800 select-none">
+            lisa schneider
+        </div>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const projectId = params.get('id');
+
+        const detailSection = document.getElementById('project-detail');
+        const notFoundSection = document.getElementById('project-not-found');
+        const titleElement = document.getElementById('project-title');
+        const subtitleElement = document.getElementById('project-subtitle');
+        const roleElement = document.getElementById('detail-role');
+        const timelineElement = document.getElementById('detail-timeline');
+        const toolsElement = document.getElementById('detail-tools');
+        const clientElement = document.getElementById('detail-client');
+        const imageElement = document.getElementById('project-image');
+        const descriptionElement = document.getElementById('project-description');
+        const challengeElement = document.getElementById('project-challenge');
+        const processElement = document.getElementById('project-process');
+        const resultsElement = document.getElementById('project-results');
+        const tagsElement = document.getElementById('project-tags');
+        const processGallery = document.getElementById('process-gallery');
+        const heroPlaceholder = document.getElementById('hero-image-placeholder');
+        const videoContainer = document.getElementById('video-container');
+        const videoPlayer = document.getElementById('local-video');
+        const videoSource = videoPlayer.querySelector('source');
+
+        function normalizeProjects(data) {
+            if (Array.isArray(data)) {
+                return data.map(project => ({ id: project.id || '', ...project }));
+            }
+            return Object.entries(data).map(([id, project]) => ({ id, ...project }));
+        }
+
+        function showNotFound() {
+            detailSection.classList.add('hidden');
+            notFoundSection.classList.remove('hidden');
+        }
+
+        function renderProject(project) {
+            titleElement.textContent = project.title || 'Side Quest Title';
+            subtitleElement.textContent = project.subtitle || '';
+            roleElement.textContent = project.role || 'Lead Designer';
+            timelineElement.textContent = project.timeline || '3 Months';
+            toolsElement.textContent = project.tools || 'Figma, Illustrator';
+            clientElement.textContent = project.client || 'Self-initiated';
+            descriptionElement.textContent = project.description || 'Quest overview content goes here.';
+            challengeElement.textContent = project.challenge || '';
+            processElement.textContent = project.process || 'A clean, thoughtful process is the core of every case study. I captured challenges, research, and outcomes with the same attention to detail as the project design.';
+            resultsElement.textContent = project.results || 'The final outcome is both visual and strategic — a project that feels polished, usable, and memorable.';
+
+            tagsElement.innerHTML = '';
+            (project.tags || []).forEach(tag => {
+                const tagItem = document.createElement('span');
+                tagItem.className = 'bg-[#fdecec] text-[#e61e1e] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.28em]';
+                tagItem.textContent = tag;
+                tagsElement.appendChild(tagItem);
+            });
+
+            if (project.imagePath) {
+                imageElement.src = project.imagePath;
+                imageElement.alt = project.title || 'Side quest image';
+                imageElement.classList.remove('hidden');
+                heroPlaceholder.classList.add('hidden');
+            } else {
+                imageElement.src = '';
+                imageElement.alt = 'Placeholder image';
+                imageElement.classList.add('hidden');
+                heroPlaceholder.classList.remove('hidden');
+            }
+
+            if (!project.challenge) {
+                challengeElement.parentElement.classList.add('hidden');
+            } else {
+                challengeElement.parentElement.classList.remove('hidden');
+            }
+
+            if (project.videoPath) {
+                videoSource.src = project.videoPath;
+                videoPlayer.load();
+                videoContainer.classList.remove('hidden');
+            } else {
+                videoContainer.classList.add('hidden');
+            }
+
+            processGallery.innerHTML = '';
+            if (project.processImages && project.processImages.length) {
+                project.processImages.forEach(imgUrl => {
+                    processGallery.innerHTML += `
+                        <div class="border-2 border-dashed border-gray-300 p-4 rounded-3xl bg-stone-50">
+                            <img src="${imgUrl}" class="w-full h-auto rounded-2xl" alt="Process image" />
+                        </div>
+                    `;
+                });
+            } else {
+                processGallery.innerHTML = `
+                    <div class="col-span-1 md:col-span-2 rounded-3xl border border-stone-200 bg-stone-50 p-8 text-center text-stone-500">
+                        No process images available for this side quest yet.
+                    </div>
+                `;
+            }
+
+            detailSection.classList.remove('hidden');
+        }
+
+        if (!projectId) {
+            showNotFound();
+        } else {
+            fetch('sidequests.json')
+                .then(response => {
+                    if (!response.ok) throw new Error('Side quest data not available');
+                    return response.json();
+                })
+                .then(data => {
+                    const sidequests = normalizeProjects(data || {});
+                    const project = sidequests.find(item => item.id === projectId);
+                    if (!project) {
+                        showNotFound();
+                        return;
+                    }
+                    renderProject(project);
+                })
+                .catch(error => {
+                    console.error(error);
+                    showNotFound();
+                });
+        }
+    </script>
+</body>
+</html>

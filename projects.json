@@ -1,0 +1,42 @@
+{
+  "project-1": {
+    "title": "Ikea Kvartett",
+    "subtitle": "An exploration of brand, information architecture, and tactile interaction",
+    "role": "Creative Director & Designer",
+    "description": "In an era of digital overload, I designed this analog quartet game to explore information architecture. Inspired by the IKEA store’s unique blend of function and togetherness, I distilled their massive product ecosystem into a playful, tactile system. By moving discovery off the screen and into the hands of the shopper, this game taps into classic nostalgia to turn a quick shopping trip into a more meaningful, shared journey—proving that sometimes, the most effective interface isn’t a screen, but a deck of cards.",
+    "challenge": "I’ve always been amazed by the total experience of the IKEA store—the journey, the restaurant, and the way it blends function with social connection. However, as our lives become increasingly digital, I wanted to create an analog extension of that experience. My goal was to design a tactile, social bridge that keeps the spirit of the store alive, encouraging visitors to pause, connect, and explore the IKEA catalog in a way that feels intentional and calm.",
+    "timeline": "2 Weeks",
+    "tools": "Illustrator, InDesign",
+    "client": "Self-Initiated",
+    "imagePath": "",
+    "videoPath": "assets/videos/welcome-to-the-jungle.mp4",
+    "process": "A classic Quartet game. It taps into the nostalgia of the in-store experience and aligns with IKEA’s core value of \"togetherness.\" By moving product discovery off the screen and into the hands of the shopper, I’ve created a moment of play that fits perfectly with the store’s social environment—turning a quick shopping trip into a more meaningful, shared journey.",
+    "processImages": [
+      "assets/pictures/",
+      "assets/pictures/",
+      "assets/pictures/",
+      "assets/pictures/"
+    ],
+    "tags": ["Product Design", "System Thinking"]
+  },
+    "project-2": {
+    "title": "Wie Gaat Eerst? (Who goes first?)",
+    "subtitle": "Building nurse resilience by integrating a prioritization game that develops instinctive cognitive schemas to prevent mental exhaustion from information overload.",
+    "role": "Creative Director & Designer",
+    "description": "In an era of digital overload, I designed this analog quartet game to explore information architecture. Inspired by the IKEA store’s unique blend of function and togetherness, I distilled their massive product ecosystem into a playful, tactile system. By moving discovery off the screen and into the hands of the shopper, this game taps into classic nostalgia to turn a quick shopping trip into a more meaningful, shared journey—proving that sometimes, the most effective interface isn’t a screen, but a deck of cards.",
+    "challenge": "I’ve always been amazed by the total experience of the IKEA store—the journey, the restaurant, and the way it blends function with social connection. However, as our lives become increasingly digital, I wanted to create an analog extension of that experience. My goal was to design a tactile, social bridge that keeps the spirit of the store alive, encouraging visitors to pause, connect, and explore the IKEA catalog in a way that feels intentional and calm.",
+    "timeline": "2 Weeks",
+    "tools": "Illustrator, InDesign",
+    "client": "Self-Initiated",
+    "imagePath": "",
+    "videoPath": "assets/videos/welcome-to-the-jungle.mp4",
+    "process": "A classic Quartet game. It taps into the nostalgia of the in-store experience and aligns with IKEA’s core value of \"togetherness.\" By moving product discovery off the screen and into the hands of the shopper, I’ve created a moment of play that fits perfectly with the store’s social environment—turning a quick shopping trip into a more meaningful, shared journey.",
+    "processImages": [
+      "assets/pictures/",
+      "assets/pictures/",
+      "assets/pictures/",
+      "assets/pictures/"
+    ],
+    "tags": ["Product Design", "System Thinking"]
+  }
+}

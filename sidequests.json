@@ -1,0 +1,41 @@
+{
+  "sidequest-1": {
+     "title": "Welcome to the jungle",
+    "subtitle": "Using projection mapping to make art history accessible and interactive.",
+    "role": "Creative Director & Designer",
+    "description": "A group of friends enters the museum and heads straight for the most famous paintings, probably because they recognize them. None of the paintings have any descriptions, assuming everyone already knows about them. However, their attention shifts when they stumble upon an unfamiliar picture of a jungle. They take their time studying it, letting their imagination run wild as they try to figure out what the painting might be about. As the story progresses, the elements in the painting come to life, and things that were only imagined start happening inside the picture. The entire group is captivated and inspired to come up with their own interpretations. Encouraged by this fascinating experience, they continue their museum journey to the next unknown painting, undeterred by the absence of a description.",
+    "challenge": "The challenge was to create an interactive experience that would engage museum visitors and make art history more accessible. The goal was to use projection mapping to bring the paintings to life and create a sense of wonder and curiosity.",
+    "timeline": "1 Month",
+    "tools": "Mad Mapper, Photoshop, After Effects",
+    "client": "Minor Audio & Visual Design",
+    "imagePath": "assets/pictures/Window_into_a_world_1.png",
+    "videoPath": "assets/videos/welcome-to-the-jungle.mp4",
+    "process": "Mad Mapper, Photoshop, After Effects",
+    "processImages": [
+      "assets/pictures/Window_into_a_world_1.png",
+      "assets/pictures/Window_into_a_world_2.png",
+      "assets/pictures/Window_into_a_world_3.png",
+      "assets/pictures/Window_into_a_world_4.png"
+    ],
+    "tags": ["Projection Mapping", "Interaction Design"]
+  },
+  "sidequest-2": {
+      "title": "Techno Albert Heijn",
+    "subtitle": "Using projection mapping to make art history accessible and interactive.",
+    "role": "Creative Director & Designer",
+    "description": "A group of friends enters the museum and heads straight for the most famous paintings, probably because they recognize them. None of the paintings have any descriptions, assuming everyone already knows about them. However, their attention shifts when they stumble upon an unfamiliar picture of a jungle. They take their time studying it, letting their imagination run wild as they try to figure out what the painting might be about. As the story progresses, the elements in the painting come to life, and things that were only imagined start happening inside the picture. The entire group is captivated and inspired to come up with their own interpretations. Encouraged by this fascinating experience, they continue their museum journey to the next unknown painting, undeterred by the absence of a description.",
+    "challenge": "The challenge was to create an interactive experience that would engage museum visitors and make art history more accessible. The goal was to use projection mapping to bring the paintings to life and create a sense of wonder and curiosity.",
+    "timeline": "1 Month",
+    "tools": "Ableton Live",
+    "client": "Minor Audio & Visual Design",
+    "imagePath": "assets/pictures/soundscape_techno_ah.webp",
+    "videoPath": "assets/videos/welcome-to-the-jungle.mp4",
+    "process": "Mad Mapper, Photoshop, After Effects",
+    "processImages": [
+      "assets/pictures/soundscape_techno_ah.webp"
+
+    ],
+    "results": "The project successfully engaged museum visitors, sparking curiosity and encouraging them to explore the paintings in a new way. The projection mapping brought the artwork to life, creating an immersive experience that left a lasting impression on the audience.", 
+    "tags": ["Audio Design"]
+  }
+}
