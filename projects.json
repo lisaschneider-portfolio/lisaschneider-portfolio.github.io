@@ -9,29 +9,29 @@
     "tools": ["Illustrator", "InDesign"],
     "client": "Self-Initiated",
     "heroImage": "assets/pictures/ikea-hero.jpg",
-    "videoPath": "assets/videos/ikea-kvartett.mp4",
     "process": "A classic Quartet game that aligns with IKEA’s core value of 'togetherness.'",
     "processImages": ["assets/pictures/ikea-1.jpg", "assets/pictures/ikea-2.jpg"],
     "tags": ["Product Design", "System Thinking"]
   },
   "wie-gaat-eerst": {
     "title": "Wie Gaat Eerst? (Who goes first?)",
-    "subtitle": "Building nurse resilience through instinctive triage simulations.",
+    "subtitle": "A triage simulation that helps nursing students make faster prioritization decisions under pressure.",
     "figmaUrl": "https://wie-gaat-eerst.figma.site",
     "role": "Researcher & Designer",
     "timeline": "10 Weeks",
     "tools": ["Illustrator", "Figma", "Miro"],
     "client": "OLVG Hospital x HvA",
-    "description": "Wie gaat eerst? is a digital design intervention inspired by simulation games...",
-    "challenge": "How to make nursing students more resilient against cognitive overload?",
-    "process": "Focusing on building human resilience through cognitive schemas.",
-    "results": "We developed a digital design intervention built upon the cognitive load framework.",
+    "description": "Emergency departments are high-pressure environments where novice nurses often struggle with prioritization and decision-making. Through stakeholder interviews and field research, we discovered that false alarms were not the root problem—they were a symptom of cognitive overload. To address this, we designed a simulation-based learning tool that allows nursing students to practice triage decisions in realistic scenarios before entering the workplace.",
+    "challenge": "Our project initially focused on reducing false alarms in Accident & Emergency departments. However, interviews with healthcare professionals revealed a deeper issue: nursing students often enter clinical environments without the experience-based mental models needed to confidently prioritize patients. How might we help nursing students develop decision-making confidence before entering high-pressure clinical settings?",
+    "process": "We conducted interviews with healthcare professionals and analyzed the causes of stress and decision fatigue in emergency care environments. Using insights from cognitive load theory, we reframed the problem from 'reducing false alarms' to 'building resilience through practice.' We then designed a digital triage simulation that progressively exposes students to realistic emergency scenarios, helping them build pattern recognition and prioritization skills through repetition and feedback.",
+    "results": "This project demonstrated the value of addressing the root causes of cognitive overload rather than its symptoms. By reframing the challenge from reducing false alarms to strengthening decision-making resilience, we created a simulation-based learning experience that helps nursing students develop the mental models required for effective patient prioritization. The concept was positively received by both students and healthcare professionals, highlighting the potential of preventative training interventions in preparing future nurses for the realities of emergency care.",
     "heroImage": "assets/pictures/WGE_start_screen.png",
     "processImages": [
       "assets/pictures/WGE_Level.png",
       "assets/pictures/WGE_Instructions_1.png",
       "assets/pictures/WGE_Instructions_2.png",
-      "assets/pictures/WGE_game_screen.png"
+      "assets/pictures/WGE_game_screen.png",
+      "assets/pictures/WGE_feedback_screen.png"
     ],
     "tags": ["UX Research", "HealthTech", "System Thinking"]
   },
