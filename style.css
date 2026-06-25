@@ -23,6 +23,8 @@ body {
     border: 2px solid #1a1a1a;
     border-radius: 9999px;
     padding: 0.3rem;
+    min-width: 44px;
+    min-height: 44px;
     background: #ffffff;
     color: #1a1a1a;
     box-shadow: 3px 3px 0 0 rgba(26, 26, 26, 1);
@@ -300,11 +302,13 @@ main {
 
 @media (max-width: 640px) {
     .a11y-toggle-wrap {
-        top: 0.7rem;
-        right: 0.7rem;
+        top: calc(env(safe-area-inset-top, 0px) + 0.55rem);
+        right: calc(env(safe-area-inset-right, 0px) + 0.55rem);
     }
     .a11y-toggle {
-        padding: 0.25rem;
+        padding: 0.35rem;
+        min-width: 48px;
+        min-height: 48px;
         gap: 0;
     }
     nav.grid.grid-cols-3 {
