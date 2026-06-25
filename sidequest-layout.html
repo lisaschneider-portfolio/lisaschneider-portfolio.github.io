@@ -178,8 +178,9 @@
                 tagsElement.appendChild(tagItem);
             });
 
-            if (project.imagePath) {
-                imageElement.src = project.imagePath;
+            const heroImageSrc = project.heroImage || project.imagePath;
+            if (heroImageSrc) {
+                imageElement.src = heroImageSrc;
                 imageElement.alt = project.title || 'Side quest image';
                 imageElement.classList.remove('hidden');
                 heroPlaceholder.classList.add('hidden');
