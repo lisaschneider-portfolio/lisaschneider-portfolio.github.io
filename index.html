@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lisa Schneider | Product Designer</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playpen+Sans:wght@600;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen relative overflow-x-hidden">
+    <div class="a11y-toggle-wrap">
+        <button type="button" class="a11y-toggle" data-wcag-toggle aria-label="Toggle WCAG accessibility mode" aria-pressed="false">
+            <span class="a11y-switch-track" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
+        </button>
+    </div>
 
     <header class="w-full px-6 py-8">
         <nav class="grid grid-cols-3 items-center max-w-xl mx-auto bg-transparent">
             <div class="text-left">
                 <a href="projects.html" class="text-xs font-extrabold tracking-tight text-stone-800 hover:opacity-60 transition-opacity">Projects</a>
             </div>
-            
             <div class="text-center flex justify-center">
                 <a href="index.html" class="inline-flex items-center justify-center border-2 border-stone-800 rounded-full p-1 hover:bg-stone-100/50 transition-colors">
                     <canvas id="nav-particle-canvas" class="block cursor-pointer"></canvas>
                 </a>
             </div>
-            
             <div class="text-right">
                 <a href="sidequests.html" class="text-xs font-extrabold tracking-tight text-stone-800 hover:opacity-60 transition-opacity">Side quests</a>
             </div>
@@ -36,53 +33,51 @@
     </header>
 
     <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 mt-16 space-y-32 overflow-x-hidden">
-        
         <section class="flex flex-col items-center text-center space-y-4 max-w-2xl mx-auto px-2 sm:px-0">
             <p class="text-3xl md:text-4xl lg:text-5xl font-semibold text-stone-400 tracking-wide">Hi, I'm Lisa</p>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none uppercase">
-                product designer
-            </h1>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none uppercase">product designer</h1>
             <p class="text-stone-600 font-medium text-base md:text-lg max-w-xl leading-relaxed">
                 who bridges marketing and strategy. In a world where every interface screams for attention, I build calm, intentional experiences that focus on what actually matters, creating tools that serve the user, not the algorithm.
             </p>
         </section>
 
-        <section id="projects" class="flex flex-col items-center text-center space-y-8 overflow-visible">
+        <section id="projects" class="flex flex-col items-center text-center space-y-4 overflow-visible">
             <div class="space-y-2">
                 <h2 class="text-3xl md:text-4xl font-black tracking-tight uppercase">must see 👀</h2>
                 <p class="text-stone-400 font-medium text-sm">Recent projects I am proud to have shaped</p>
             </div>
 
-            <div class="w-full max-w-2xl mx-auto flex justify-center items-center relative min-h-[400px] select-none overflow-visible" id="carousel-track">
-                <!-- Project cards generated from projects.json -->
-            </div>
+            <div class="w-full max-w-2xl mx-auto flex justify-center items-center relative min-h-[320px] select-none overflow-visible" id="carousel-track"></div>
 
             <div class="pt-2 w-full flex justify-center px-4 sm:px-0">
-                <button id="project-action-button" class="inline-flex items-center justify-center min-h-[52px] w-full sm:w-auto px-6 py-4 bg-[#e61e1e] text-white rounded-2xl font-extrabold text-xs uppercase tracking-wider shadow-md hover:bg-[#ba1c1c] hover:shadow-lg transition-all duration-300 transform active:scale-95">
+                <button id="project-action-button" class="carousel-cta inline-flex items-center justify-center min-h-[52px] w-full sm:w-auto px-6 py-4 bg-[#e61e1e] text-white rounded-2xl font-extrabold text-xs uppercase tracking-wider shadow-md hover:bg-[#ba1c1c] hover:shadow-lg transition-all duration-300 transform active:scale-95">
                     view project
                 </button>
             </div>
         </section>
 
-        <section class="flex flex-col items-center text-center space-y-8 max-w-2xl mx-auto">
+        </main>
+<!-- "In case you need me for..." Section -->
+        <section class="flex flex-col items-center text-center space-y-8 max-w-2xl mx-auto mt-16">
             <div class="space-y-2">
                 <h2 class="text-3xl md:text-4xl font-black tracking-tight uppercase">in case you need me for...</h2>
                 <p class="text-stone-400 font-medium text-sm">design which matters and not only sells and you ready for somthing new</p>
             </div>
 
             <div class="flex flex-wrap justify-center gap-3 max-w-xl">
-                <span class="bg-[#fdecec] text-[#e61e1e] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Brand Strategy</span>
-                <span class="bg-[#fdecec] text-[#e61e1e] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Visual Identity</span>
-                <span class="bg-[#fdecec] text-[#e61e1e] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Typographie</span>
-                <span class="bg-[#fdecec] text-[#e61e1e] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Design Systems</span>
+                <span class="service-pill bg-[#fdecec] text-[#e61e1e] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Brand Strategy</span>
+                <span class="service-pill bg-[#fdecec] text-[#e61e1e] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Visual Identity</span>
+                <span class="service-pill bg-[#fdecec] text-[#e61e1e] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Typographie</span>
+                <span class="service-pill bg-[#fdecec] text-[#e61e1e] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Design Systems</span>
             </div>
 
-            <button class="bg-[#e61e1e] text-white px-8 py-4 rounded-2xl font-extrabold text-xs uppercase tracking-wider shadow-md hover:bg-[#ba1c1c] hover:shadow-lg transition-all duration-300 transform active:scale-95 mt-2">
+            <a href="mailto:lisa.schneider.business@gmail.com" class="chat-cta inline-flex items-center justify-center bg-[#e61e1e] text-white px-8 py-4 rounded-2xl font-extrabold text-xs uppercase tracking-wider shadow-md hover:bg-[#ba1c1c] hover:shadow-lg transition-all duration-300 transform active:scale-95 mt-2">
                 lets chat!
-            </button>
+            </a>
         </section>
 
-        <section id="side-quests" class="flex flex-col items-center text-center space-y-12 overflow-visible">
+        <!-- "About me" Section -->
+        <section id="side-quests" class="flex flex-col items-center text-center space-y-12 overflow-visible mt-24">
             <div class="space-y-4 max-w-xl">
                 <h2 class="text-3xl md:text-4xl font-black tracking-tight uppercase">about me</h2>
                 <p class="text-stone-800 font-bold text-lg md:text-xl leading-relaxed tracking-tight">
@@ -93,107 +88,60 @@
                 </p>
             </div>
 
+            <!-- About cards -->
             <div class="w-full flex overflow-x-auto md:overflow-x-visible md:justify-center items-center no-scrollbar px-4 md:px-0 py-8 space-x-4 md:space-x-3 snap-x snap-mandatory min-h-[280px]">
-                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-stone-300 rounded-[1.75rem] p-4 flex flex-col justify-end transform -rotate-6 md:translate-y-4 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer"></div>
-
-                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#df6e67] rounded-[1.75rem] p-4 flex flex-col justify-end transform rotate-3 md:-translate-y-2 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer"></div>
-
-                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#67b1df] rounded-[1.75rem] p-4 flex flex-col justify-end transform -rotate-3 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer"></div>
-
-                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#e167be] rounded-[1.75rem] p-0 flex flex-col justify-end transform rotate-6 md:translate-y-5 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
+                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-stone-300 rounded-[1.75rem] p-0 flex flex-col justify-end transform -rotate-6 md:translate-y-4 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
+                    <img src="assets/pictures/germany.jpg" alt="Germany" class="absolute inset-0 w-full h-full object-cover" />
+                </div>
+                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#df6e67] rounded-[1.75rem] p-0 flex flex-col justify-end transform rotate-3 md:-translate-y-2 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
+                    <img src="assets/pictures/3D.jpg" alt="3D" class="absolute inset-0 w-full h-full object-cover" />
+                </div>
+                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#67b1df] rounded-[1.75rem] p-0 flex flex-col justify-end transform -rotate-3 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
                     <img src="assets/pictures/lisa-portrait.jpg" alt="Lisa Schneider" class="absolute inset-0 w-full h-full object-cover" />
                 </div>
-
-                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#a287df] rounded-[1.75rem] p-4 flex flex-col justify-end transform -rotate-6 md:-translate-y-1 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer"></div>
+                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#e167be] rounded-[1.75rem] p-0 flex flex-col justify-end transform rotate-6 md:translate-y-5 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
+                    <img src="assets/pictures/netherlands.jpg" alt="Netherlands" class="absolute inset-0 w-full h-full object-cover" />
+                </div>
+                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#a287df] rounded-[1.75rem] p-0 flex flex-col justify-end transform -rotate-6 md:-translate-y-1 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
+                    <img src="assets/pictures/ddw.jpg" alt="DDW" class="absolute inset-0 w-full h-full object-cover" />
+                </div>
             </div>
         </section>
-
-    </main>
-
-    <footer class="w-full mt-36 py-12 flex flex-col items-center space-y-1 border-t border-stone-200/40">
-        <div class="footer-brand text-center text-stone-800 select-none">
-            lisa schneider
-        </div>
-        
-        <div class="flex items-center space-x-5 text-stone-400">
-            <a href="https://www.linkedin.com/in/lisa-marie-schneider" target="_blank" class="hover:text-stone-800 transition-colors" aria-label="LinkedIn">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://instagram.com" target="_blank" class="hover:text-stone-800 transition-colors" aria-label="Instagram">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-        </div>
-    </footer>
-
     <script src="particle-text.js"></script>
+    <script src="accessibility-mode.js"></script>
     <script>
         const track = document.getElementById('carousel-track');
-        let cards = [];
-        let totalCards = 0;
-        let projectData = [];
+        let cards = [], totalCards = 0, projectData = [];
         const actionButton = document.getElementById('project-action-button');
-
-        let activeIndex = 0;
-        let isDragging = false;
-        let startX = 0;
-        let currentTranslate = 0;
+        let activeIndex = 0, isDragging = false, startX = 0, currentTranslate = 0;
         const isTouchInput = window.matchMedia('(pointer: coarse)').matches;
 
         function normalizeProjects(data) {
-            if (Array.isArray(data)) {
-                return data.map(project => ({ id: project.id || '', ...project }));
-            }
             return Object.entries(data).map(([id, project]) => ({ id, ...project }));
         }
 
         function createProjectCards(projects) {
             track.innerHTML = '';
-            projectData = projects.map(project => ({
-                id: project.id,
-                title: project.title,
-                subtitle: project.subtitle,
-                url: `project-layout.html?id=${encodeURIComponent(project.id)}`
-            }));
-
+            projectData = projects.map(p => ({ id: p.id, title: p.title, url: `project-layout.html?id=${encodeURIComponent(p.id)}` }));
             projects.forEach((project, index) => {
                 const card = document.createElement('div');
-                card.className = 'fan-card absolute w-[320px] h-[240px] bg-white rounded-[2rem] border-[0.5px] border-black/10 shadow-[6px_6px_0px_0px_rgba(26,26,26,1),0_8px_16px_-10px_rgba(0,0,0,0.25)] overflow-hidden flex flex-col justify-start p-3 h-full origin-bottom cursor-grab';
-                card.dataset.index = index;
-                card.dataset.href = `project-layout.html?id=${encodeURIComponent(project.id)}`;
-                const imageSrc = project.heroImage || project.imagePath || 'assets/pictures/placeholder.jpg';
-                card.innerHTML = `
-                    <div class="w-full h-[72%] rounded-[1.5rem] bg-stone-200/70 border border-stone-200/40 overflow-hidden relative flex items-center justify-center">
-                        <img src="${imageSrc}" alt="${project.title}" class="h-full w-full object-cover" />
-                    </div>
-                    <div class="mt-3 w-full flex flex-col justify-start">
-                        <h3 class="w-full text-sm font-black uppercase tracking-tight text-stone-900">${project.title}</h3>
-                    </div>
-                `;
+                card.className = 'fan-card absolute w-[320px] h-[240px] rounded-[2rem] shadow-[6px_6px_0px_0px_rgba(26,26,26,1)] overflow-hidden flex flex-col justify-end p-0 h-full origin-bottom cursor-pointer';
+                card.innerHTML = `<div class="w-full h-[calc(100%-56px)] overflow-hidden relative rounded-t-[2rem]"><img src="${project.heroImage}" class="h-full w-full object-cover" /></div><div class="w-full bg-white px-4 py-3"><h3 class="text-sm font-black uppercase text-stone-900">${project.title}</h3></div>`;
+                card.addEventListener('click', () => {
+                    activeIndex = index;
+                    layoutCarousel(0);
+                    updateMetadata(activeIndex);
+                });
                 track.appendChild(card);
             });
-
             cards = Array.from(document.querySelectorAll('.fan-card'));
             totalCards = cards.length;
         }
 
         function updateMetadata(index) {
             const data = projectData[index];
-
-            if (!actionButton) return;
-
-            if (data) {
-                actionButton.onclick = () => {
-                    window.location.href = data.url;
-                };
-                actionButton.innerText = `view ${data.title}`;
-                actionButton.disabled = false;
-                actionButton.setAttribute('aria-label', `View ${data.title}`);
-            } else {
-                actionButton.onclick = null;
-                actionButton.innerText = 'view project';
-                actionButton.disabled = true;
-                actionButton.removeAttribute('aria-label');
-            }
+            actionButton.onclick = () => window.location.href = data.url;
+            actionButton.innerText = `view ${data.title}`;
         }
 
         function layoutCarousel(dragOffset = 0) {
@@ -201,92 +149,33 @@
                 let offset = i - activeIndex;
                 if (offset > totalCards / 2) offset -= totalCards;
                 if (offset < -totalCards / 2) offset += totalCards;
-
-                const dynamicOffset = offset - (dragOffset / 180);
-                const rotationAngle = dynamicOffset * 9;
-                const translateHorizontal = dynamicOffset * 58;
-                const translateVertical = Math.abs(dynamicOffset) * 12;
-                const layerOrder = 30 - Math.round(Math.abs(dynamicOffset) * 2);
-                const cardScale = i === activeIndex ? 1 : 0.92;
-
-                card.style.zIndex = layerOrder;
-                card.style.transform = `translateX(${translateHorizontal}px) translateY(${translateVertical}px) rotate(${rotationAngle}deg) scale(${cardScale})`;
-                card.style.opacity = '1';
-                card.style.boxShadow = i === activeIndex
-                    ? '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-                    : '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                const dOffset = offset - (dragOffset / 180);
+                card.style.zIndex = 30 - Math.round(Math.abs(dOffset) * 2);
+                card.style.transform = `translateX(${dOffset * 58}px) translateY(${Math.abs(dOffset) * 12}px) rotate(${dOffset * 9}deg) scale(${i === activeIndex ? 1 : 0.92})`;
             });
         }
 
-        function dragStart(e) {
-            isDragging = true;
-            startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-            if (!isTouchInput) {
-                track.style.cursor = 'grabbing';
-            }
-            cards.forEach(card => card.style.transition = 'none');
-        }
-
-        function dragMove(e) {
-            if (!isDragging) return;
-            const currentX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-            currentTranslate = currentX - startX;
-            layoutCarousel(currentTranslate);
-        }
-
+        // Drag handlers...
+        function dragStart(e) { isDragging = true; startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX; cards.forEach(c => c.style.transition = 'none'); }
+        function dragMove(e) { if (!isDragging) return; currentTranslate = (e.type.includes('touch') ? e.touches[0].clientX : e.clientX) - startX; layoutCarousel(currentTranslate); }
         function dragEnd() {
-            if (!isDragging) return;
-            isDragging = false;
-            if (!isTouchInput) {
-                track.style.cursor = 'grab';
-            }
-            cards.forEach(card => {
-                card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s, box-shadow 0.4s';
-            });
-
-            const swipeThreshold = 60;
-            if (currentTranslate < -swipeThreshold) {
-                activeIndex = (activeIndex + 1) % totalCards;
-            } else if (currentTranslate > swipeThreshold) {
-                activeIndex = (activeIndex - 1 + totalCards) % totalCards;
-            }
-
-            currentTranslate = 0;
-            layoutCarousel(0);
-            updateMetadata(activeIndex);
+            if (!isDragging) return; isDragging = false;
+            cards.forEach(c => c.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)');
+            if (currentTranslate < -60) activeIndex = (activeIndex + 1) % totalCards;
+            else if (currentTranslate > 60) activeIndex = (activeIndex - 1 + totalCards) % totalCards;
+            currentTranslate = 0; layoutCarousel(0); updateMetadata(activeIndex);
         }
 
-        
-
-        if (!isTouchInput) {
-            track.addEventListener('mousedown', dragStart);
-            track.addEventListener('mousemove', dragMove);
-            window.addEventListener('mouseup', dragEnd);
-            track.style.cursor = 'grab';
-        } else {
-            track.style.cursor = 'auto';
-        }
-
-        track.addEventListener('touchstart', dragStart, { passive: true });
-        track.addEventListener('touchmove', dragMove, { passive: false });
-        window.addEventListener('touchend', dragEnd);
 
         fetch('projects.json')
-            .then(response => {
-                if (!response.ok) throw new Error('Project data not available');
-                return response.json();
-            })
+            .then(res => res.json())
             .then(data => {
-                const projects = normalizeProjects(data);
-                if (!projects.length) throw new Error('No projects found');
-                createProjectCards(projects);
-                activeIndex = Math.min(2, totalCards - 1);
+                const all = normalizeProjects(data);
+                const allowed = ['vistar-media', 'wie-gaat-eerst', 'albert-heijn-techno'];
+                const filtered = all.filter(p => allowed.includes(p.id));
+                createProjectCards(filtered);
+                updateMetadata(0);
                 layoutCarousel(0);
-                updateMetadata(activeIndex);
-            })
-            .catch(error => {
-                console.error(error);
-                track.innerHTML = '<div class="text-center text-stone-500">Failed to load projects.</div>';
             });
     </script>
 </body>

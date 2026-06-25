@@ -6,8 +6,14 @@
     <title>Project Detail – Lisa Schneider</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen bg-[#f9f7f2] text-[#1a1a1a] font-inter">
+    <div class="a11y-toggle-wrap">
+        <button type="button" class="a11y-toggle" data-wcag-toggle aria-label="Toggle WCAG accessibility mode" aria-pressed="false">
+            <span class="a11y-switch-track" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
+        </button>
+    </div>
 
     <main class="w-full max-w-5xl mx-auto px-6 mt-20 pb-24">
         <a href="projects.html" class="text-xs font-extrabold uppercase tracking-wider text-stone-500 hover:text-stone-800 transition-colors mb-8 block">← Back to projects</a>
@@ -104,5 +110,6 @@
             })
             .catch(err => console.error("Error loading JSON:", err));
     </script>
+    <script src="accessibility-mode.js"></script>
 </body>
 </html>

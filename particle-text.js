@@ -10,6 +10,7 @@
   const FONT_FAMILY = 'Caveat';
   const FONT_WEIGHT = 700;
   const COLOR = '#de1c1c';
+  const ACCESSIBLE_COLOR = '#ffffff';
   const PARTICLE_RADIUS = 2.2;
   const SCATTER_AMOUNT = 4;
   const REPULSION_RADIUS = 45;
@@ -55,7 +56,8 @@
     draw(ctx) {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = COLOR;
+      const isAccessibleMode = document.body && document.body.getAttribute('data-theme') === 'accessible';
+      ctx.fillStyle = isAccessibleMode ? ACCESSIBLE_COLOR : COLOR;
       ctx.fill();
     }
   }
@@ -86,6 +88,47 @@
       }
     }
     return { points: result, width: offscreen.width, height: offscreen.height };
+  }
+
+  function createHeartVertices(scale = 1) {
+    return [
+      { x: 0, y: -20 * scale },
+      { x: 15 * scale, y: -35 * scale },
+      { x: 30 * scale, y: -20 * scale },
+      { x: 30 * scale, y: 0 },
+      { x: 0, y: 40 * scale },
+      { x: -30 * scale, y: 0 },
+      { x: -30 * scale, y: -20 * scale },
+      { x: -15 * scale, y: -35 * scale }
+    ];
+  }
+
+  function createFlowerParts(x, y, radius = 14) {
+    const center = Matter.Bodies.circle(x, y, radius * 0.5, {
+      restitution: 0.5,
+      friction: 0.02,
+      density: 0.0012
+    });
+    const petalRadius = radius * 0.45;
+    const spacing = radius * 0.9;
+    const petals = [
+      { x: spacing, y: 0 },
+      { x: -spacing, y: 0 },
+      { x: 0, y: spacing },
+      { x: 0, y: -spacing }
+    ].map(offset => Matter.Bodies.circle(x + offset.x, y + offset.y, petalRadius, {
+      restitution: 0.5,
+      friction: 0.02,
+      density: 0.001
+    }));
+
+    return Matter.Body.create({
+      parts: [center, ...petals],
+      friction: 0.02,
+      restitution: 0.55,
+      density: 0.0011,
+      render: { fillStyle: '#de1c1c' }
+    });
   }
 
   class ParticleTextCanvas {
@@ -149,6 +192,7 @@
       window.addEventListener('resize', () => this.resizeCanvas());
     }
   }
+
 
   function initCanvasById(id) {
     const canvas = document.getElementById(id);
