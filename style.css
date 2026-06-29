@@ -113,7 +113,8 @@ body[data-theme='accessible'] a {
 }
 
 body[data-theme='accessible'] nav a {
-    text-decoration: none !important;
+    text-decoration: underline !important;
+    text-underline-offset: 0.16em;
 }
 
 body[data-theme='accessible'] nav.grid.grid-cols-3 > div:nth-child(2) > a {
@@ -185,6 +186,10 @@ body[data-theme='accessible'] #project-detail {
     border-color: #1234db !important;
 }
 
+body[data-theme='accessible'] #project-detail {
+    box-shadow: 10px 10px 0 0 #ffffff !important;
+}
+
 body[data-theme='accessible'] .project-card {
     box-shadow: 8px 8px 0 0 #ffffff !important;
 }
@@ -204,8 +209,7 @@ body[data-theme='accessible'] #hero-image-wrapper {
 }
 
 body[data-theme='accessible'] .project-card,
-body[data-theme='accessible'] .project-card *,
-body[data-theme='accessible'] #project-detail a {
+body[data-theme='accessible'] .project-card * {
     text-decoration: none !important;
 }
 
@@ -213,7 +217,10 @@ body[data-theme='accessible'] #cta-container a,
 body[data-theme='accessible'] #audio-button-container a,
 body[data-theme='accessible'] #project-detail a.bg-\[\#16a34a\],
 body[data-theme='accessible'] #project-detail a.bg-\[\#1234db\] {
+    background: #1234db !important;
     color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+    text-decoration: none !important;
 }
 
 body[data-theme='accessible'] .project-card h1,
@@ -241,6 +248,7 @@ body[data-theme='accessible'] #project-tags span {
 }
 
 body[data-theme='accessible'] .project-card .relative.h-72,
+body[data-theme='accessible'] .project-card-media,
 body[data-theme='accessible'] #hero-image-wrapper,
 body[data-theme='accessible'] #process-gallery > div,
 body[data-theme='accessible'] #process-video-gallery > div,
@@ -308,6 +316,53 @@ body[data-theme='accessible'] *::after {
     box-shadow: 8px 8px 0 0 #000000;
 }
 
+#project-detail {
+    box-shadow: 10px 10px 0 0 #1a1a1a;
+}
+
+.project-card {
+    border-color: #1a1a1a;
+}
+
+.project-card-media {
+    background: transparent;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.project-card-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+}
+
+.media-frame {
+    border: 2px solid #1a1a1a;
+    border-radius: 1.75rem;
+    overflow: hidden;
+    background: transparent;
+}
+
+.media-frame img,
+.media-frame video {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: inherit;
+}
+
+body[data-theme='accessible'] .media-frame {
+    border-color: #1234db !important;
+}
+
+/* Remove shadows only on the large detail hero media blocks. */
+#project-detail #project-image,
+#project-detail #hero-image-wrapper {
+    box-shadow: none !important;
+}
+
 /* Hide native default browser scrollbars */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -336,6 +391,301 @@ nav.grid.grid-cols-3 a {
     letter-spacing: 0.04em;
     font-size: 0.9rem;
     white-space: nowrap;
+}
+
+.footer-made-line {
+    margin-top: -0.2rem;
+    color: #57534e;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+}
+
+/* Homepage guestbook styling */
+.guestbook-shell {
+    position: relative;
+    background: linear-gradient(180deg, #fff8ee 0%, #fff3e0 100%);
+}
+
+.guestbook-shell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1.6rem;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.45), transparent 42%),
+        radial-gradient(circle at 88% 80%, rgba(255, 255, 255, 0.3), transparent 40%);
+    opacity: 0.9;
+}
+
+.guestbook-header,
+.guestbook-studio,
+.guestbook-board,
+.guestbook-help {
+    position: relative;
+    z-index: 1;
+}
+
+.guestbook-studio {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.guestbook-field {
+    background-color: transparent !important;
+}
+
+.guestbook-lines {
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 24px,
+        rgba(120, 120, 120, 0.35) 24px,
+        rgba(120, 120, 120, 0.35) 25px
+    );
+}
+
+.guestbook-pad-panel {
+    background: #fff7bf;
+    border: 2px solid #1a1a1a;
+    border-radius: 1.2rem;
+    padding: 1rem;
+    box-shadow: 6px 6px 0 rgba(26, 26, 26, 0.3);
+}
+
+.guestbook-pad-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    color: #3f3f46;
+    margin-bottom: 0.55rem;
+}
+
+.guestbook-draft-note {
+    width: 180px;
+    min-height: 210px;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    border-radius: 0.45rem;
+    background: #fef08a;
+    box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.15);
+    transform: rotate(-2deg);
+    padding: 0.75rem;
+    user-select: none;
+    cursor: grab;
+    touch-action: none;
+}
+
+.guestbook-draft-note:active {
+    cursor: grabbing;
+}
+
+.guestbook-draft-name {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.35rem;
+}
+
+.guestbook-draft-message {
+    min-height: 142px;
+    line-height: 1.42;
+}
+
+.guestbook-submit {
+    border: 2px solid #166534;
+    box-shadow: 3px 3px 0 0 #14532d;
+    margin-top: 0.75rem;
+}
+
+.guestbook-board {
+    min-height: 450px;
+    border: 2px solid #1a1a1a;
+    border-radius: 1.5rem;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(255, 232, 196, 0.35), transparent 22%),
+        radial-gradient(circle at 76% 66%, rgba(255, 233, 179, 0.32), transparent 24%),
+        repeating-linear-gradient(
+            24deg,
+            rgba(128, 83, 36, 0.08),
+            rgba(128, 83, 36, 0.08) 2px,
+            transparent 2px,
+            transparent 18px
+        ),
+        linear-gradient(180deg, #d6a26d 0%, #c58b54 100%);
+    overflow: hidden;
+    touch-action: none;
+}
+
+.guestbook-pin-dock {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 96px;
+    height: 100%;
+    border-left: 2px dashed rgba(255, 255, 255, 0.55);
+    background: linear-gradient(180deg, rgba(101, 67, 33, 0.54) 0%, rgba(78, 52, 30, 0.6) 100%);
+}
+
+.guestbook-dock-label {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    color: #fef3c7;
+}
+
+.guestbook-layer {
+    position: absolute;
+    inset: 0;
+}
+
+.guestbook-note {
+    position: absolute;
+    width: 180px;
+    height: 168px;
+    padding: 0.8rem 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.45rem;
+    box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.15);
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
+
+.guestbook-note-ghost {
+    opacity: 0.94;
+}
+
+.guestbook-note.is-pinned {
+    cursor: default;
+    box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.guestbook-note-name {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #1c1917;
+}
+
+.guestbook-note-message {
+    margin-top: 0.45rem;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    color: #1f2937;
+    white-space: pre-wrap;
+    max-height: 94px;
+    overflow: auto;
+}
+
+.guestbook-note-date {
+    position: absolute;
+    left: 0.75rem;
+    bottom: 0.55rem;
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: #57534e;
+}
+
+.guestbook-pin {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    border: 1px solid #1f2937;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    line-height: 1;
+    cursor: grab;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.18);
+    touch-action: none;
+}
+
+.guestbook-pin.is-pinned {
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+body[data-theme='accessible'] .guestbook-shell {
+    border-color: #ffffff !important;
+    background: #1234db !important;
+}
+
+body[data-theme='accessible'] .guestbook-shell::before {
+    background: repeating-linear-gradient(
+        to bottom,
+        #ffffff,
+        #ffffff 10px,
+        transparent 10px,
+        transparent 18px
+    );
+    opacity: 0.35;
+}
+
+body[data-theme='accessible'] .guestbook-field,
+body[data-theme='accessible'] .guestbook-pad-panel,
+body[data-theme='accessible'] .guestbook-draft-note,
+body[data-theme='accessible'] .guestbook-board,
+body[data-theme='accessible'] .guestbook-pin-dock,
+body[data-theme='accessible'] .guestbook-note,
+body[data-theme='accessible'] .guestbook-pin {
+    border-color: #ffffff !important;
+    background: #1234db !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+body[data-theme='accessible'] .guestbook-lines {
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 27px,
+        #9db2ff 27px,
+        #9db2ff 28px
+    );
+}
+
+body[data-theme='accessible'] .guestbook-submit {
+    border-color: #ffffff !important;
+    box-shadow: 3px 3px 0 0 #ffffff !important;
+}
+
+body[data-theme='accessible'] .guestbook-note-name,
+body[data-theme='accessible'] .guestbook-note-date,
+body[data-theme='accessible'] .guestbook-note-message,
+body[data-theme='accessible'] .guestbook-dock-label,
+body[data-theme='accessible'] .guestbook-pad-title {
+    color: #ffffff !important;
+}
+
+@media (min-width: 900px) {
+    .guestbook-studio {
+        grid-template-columns: 220px minmax(0, 1fr);
+        align-items: start;
+    }
+}
+
+@media (max-width: 768px) {
+    .guestbook-board {
+        min-height: 500px;
+    }
+    .guestbook-draft-note {
+        margin-inline: auto;
+    }
+    .guestbook-pin-dock {
+        width: 84px;
+    }
 }
 
 /* Setup the bouncing letter architecture */
@@ -378,14 +728,11 @@ main {
     nav.grid.grid-cols-3 {
         max-width: 90vw;
     }
-    .footer-brand {
-        padding: 0.4rem 0.8rem;
-    }
 }
 
 @media (max-width: 768px) {
-    .footer-brand {
-        font-size: 0.85rem;
+    .footer-made-line {
+        font-size: 0.72rem;
     }
     .project-card {
         max-width: 100%;

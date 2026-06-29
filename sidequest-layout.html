@@ -75,8 +75,8 @@
                     </div>
                 </div>
 
-                <div id="hero-video-block" class="hidden border-2 border-dashed border-gray-300 p-4 rounded-3xl bg-stone-50">
-                    <video id="hero-video" controls playsinline class="w-full h-auto rounded-2xl border border-stone-200 bg-black" preload="metadata">
+                <div id="hero-video-block" class="hidden">
+                    <video id="hero-video" controls playsinline class="media-frame w-full h-auto bg-black" preload="metadata">
                         <source id="hero-video-source" src="" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
@@ -144,6 +144,7 @@
         <div class="footer-brand text-center text-stone-800 select-none">
             lisa schneider
         </div>
+        <p class="footer-made-line">made in Germany 🇩🇪</p>
     </footer>
 
     <script>
@@ -244,8 +245,8 @@
             if (project.processImages && project.processImages.length) {
                 project.processImages.forEach(imgUrl => {
                     processGallery.innerHTML += `
-                        <div class="border-2 border-dashed border-gray-300 p-4 rounded-3xl bg-stone-50">
-                            <img src="${imgUrl}" class="w-full h-auto rounded-2xl" alt="Process image" />
+                        <div class="media-frame">
+                            <img src="${imgUrl}" class="w-full h-auto" alt="Process image" />
                         </div>
                     `;
                 });
@@ -266,12 +267,10 @@
             if (processVideos.length) {
                 processVideos.forEach(videoUrl => {
                     processVideoGallery.innerHTML += `
-                        <div class="border-2 border-dashed border-gray-300 p-4 rounded-3xl bg-stone-50">
-                            <video controls playsinline class="w-full h-auto rounded-2xl border border-stone-200 bg-black" preload="metadata">
-                                <source src="${videoUrl}" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+                        <video controls playsinline class="media-frame w-full h-auto bg-black" preload="metadata">
+                            <source src="${videoUrl}" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     `;
                 });
                 processVideoGallery.classList.remove('hidden');
@@ -284,8 +283,8 @@
             if (trailingProcessImages.length) {
                 trailingProcessImages.forEach(imgUrl => {
                     processGalleryAfterVideos.innerHTML += `
-                        <div class="border-2 border-dashed border-gray-300 p-4 rounded-3xl bg-stone-50">
-                            <img src="${imgUrl}" class="w-full h-auto rounded-2xl" alt="Additional process image" />
+                        <div class="media-frame">
+                            <img src="${imgUrl}" class="w-full h-auto" alt="Additional process image" />
                         </div>
                     `;
                 });

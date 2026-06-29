@@ -143,16 +143,78 @@
                 </div>
             </div>
         </section>
+
+        <section id="guestbook" class="guestbook-section max-w-4xl mx-auto mt-20 px-4 sm:px-0">
+            <div class="guestbook-shell rounded-[1.75rem] border-2 border-stone-800 bg-white p-6 md:p-8 shadow-[8px_8px_0_0_#1a1a1a]">
+                <div class="guestbook-header text-center space-y-2">
+                    <h2 class="text-3xl md:text-4xl font-black tracking-tight uppercase">guestbook wall</h2>
+                    <p class="text-stone-500 font-medium text-sm">Write on a post-it, drag it around, and pin it down.</p>
+                </div>
+
+                <div class="guestbook-studio mt-6">
+                    <div class="guestbook-pad-panel">
+                        <p class="guestbook-pad-title">write here</p>
+                        <article id="guestbook-draft" class="guestbook-draft-note" aria-label="Draft post-it">
+                            <input
+                                id="guestbook-name"
+                                type="text"
+                                maxlength="40"
+                                placeholder="your name"
+                                class="guestbook-field guestbook-draft-name w-full border-0 bg-transparent px-0 py-0 text-sm font-bold text-stone-800 placeholder:text-stone-500 focus:outline-none"
+                            />
+                            <textarea
+                                id="guestbook-message"
+                                rows="6"
+                                maxlength="200"
+                                placeholder="write a post-it, then drag this note onto the board"
+                                class="guestbook-field guestbook-lines guestbook-draft-message w-full border-0 bg-transparent px-0 py-0 text-sm font-medium text-stone-800 placeholder:text-stone-500 focus:outline-none resize-none"
+                                required
+                            ></textarea>
+                        </article>
+                        <button id="guestbook-place-button" type="button" class="guestbook-submit inline-flex items-center justify-center rounded-2xl bg-[#16a34a] px-5 py-3 text-xs font-extrabold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#166534]">
+                            place on board
+                        </button>
+                    </div>
+
+                    <div>
+                        <div id="guestbook-board" class="guestbook-board" aria-label="Draggable guestbook board">
+                            <div class="guestbook-pin-dock" aria-hidden="true">
+                                <p class="guestbook-dock-label">pins</p>
+                            </div>
+                            <div id="guestbook-notes-layer" class="guestbook-layer"></div>
+                            <div id="guestbook-pins-layer" class="guestbook-layer"></div>
+                        </div>
+                        <p class="guestbook-help text-xs text-stone-500 mt-3">Drag the left post-it onto the board, then drag a pin onto it to stick it.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     <script src="particle-text.js"></script>
     <script src="accessibility-mode.js"></script>
     <script>
         const track = document.getElementById('carousel-track');
         const prevButton = document.getElementById('carousel-prev');
         const nextButton = document.getElementById('carousel-next');
+        const guestbookDraft = document.getElementById('guestbook-draft');
+        const guestbookPlaceButton = document.getElementById('guestbook-place-button');
+        const guestbookNameInput = document.getElementById('guestbook-name');
+        const guestbookMessageInput = document.getElementById('guestbook-message');
+        const guestbookBoard = document.getElementById('guestbook-board');
+        const guestbookNotesLayer = document.getElementById('guestbook-notes-layer');
+        const guestbookPinsLayer = document.getElementById('guestbook-pins-layer');
         let cards = [], totalCards = 0, projectData = [];
         const actionButton = document.getElementById('project-action-button');
         let activeIndex = 0, isDragging = false, startX = 0, currentTranslate = 0;
         const isTouchInput = window.matchMedia('(pointer: coarse)').matches;
+        const GUESTBOOK_STORAGE_KEY = 'lisa-guestbook-postits-v1';
+
+        const NOTE_SIZE = { width: 180, height: 168 };
+        const PIN_SIZE = 26;
+        const PIN_DOCK_WIDTH = 96;
+        const DRAFT_COLOR = '#fef08a';
+        const NOTE_COLORS = ['#fef08a', '#fde68a', '#bfdbfe', '#fecdd3', '#bbf7d0', '#e9d5ff'];
+        let guestbookState = null;
+        let postitDragState = null;
 
         function normalizeCollection(data) {
             return Object.entries(data).map(([id, item]) => ({ id, ...item }));
@@ -238,6 +300,395 @@
         prevButton.addEventListener('click', goToPreviousCard);
         nextButton.addEventListener('click', goToNextCard);
 
+        function clamp(value, min, max) {
+            return Math.min(max, Math.max(min, value));
+        }
+
+        function createDefaultPins() {
+            return Array.from({ length: 6 }, (_, index) => ({
+                id: `pin-${Date.now()}-${index}`,
+                xPct: 0.9,
+                yPct: 0.18 + index * 0.12,
+                noteId: null,
+                offsetXPct: 0.5,
+                offsetYPct: 0.1
+            }));
+        }
+
+        function loadGuestbookState() {
+            try {
+                const raw = localStorage.getItem(GUESTBOOK_STORAGE_KEY);
+                const parsed = raw ? JSON.parse(raw) : null;
+                if (!parsed || typeof parsed !== 'object') {
+                    return { notes: [], pins: createDefaultPins() };
+                }
+                const notes = Array.isArray(parsed.notes) ? parsed.notes : [];
+                const pins = Array.isArray(parsed.pins) && parsed.pins.length ? parsed.pins : createDefaultPins();
+                return { notes, pins };
+            } catch {
+                return { notes: [], pins: createDefaultPins() };
+            }
+        }
+
+        function saveGuestbookState() {
+            try {
+                localStorage.setItem(GUESTBOOK_STORAGE_KEY, JSON.stringify(guestbookState));
+            } catch {
+                // Ignore storage errors silently.
+            }
+        }
+
+        function getTodayLabel() {
+            return new Date().toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric'
+            });
+        }
+
+        function buildNewNote(xPx, yPx) {
+            const name = guestbookNameInput.value.trim();
+            const message = guestbookMessageInput.value.trim();
+            if (!message) return null;
+
+            const metrics = getBoardMetrics();
+            const safeX = clamp(xPx, 8, metrics.noteMaxX);
+            const safeY = clamp(yPx, 8, metrics.noteMaxY);
+
+            return {
+                id: `note-${Date.now()}`,
+                name: name || 'anonymous',
+                message,
+                date: getTodayLabel(),
+                color: DRAFT_COLOR,
+                xPct: safeX / metrics.width,
+                yPct: safeY / metrics.height,
+                rotation: Math.round((Math.random() * 6 - 3) * 10) / 10,
+                pinnedBy: null
+            };
+        }
+
+        function addNoteToBoard(note) {
+            if (!note) return;
+            guestbookState.notes.unshift(note);
+            guestbookState.notes = guestbookState.notes.slice(0, 40);
+            saveGuestbookState();
+            guestbookMessageInput.value = '';
+            renderGuestbookBoard();
+        }
+
+        function createDraftGhost() {
+            const name = guestbookNameInput.value.trim() || 'anonymous';
+            const message = guestbookMessageInput.value.trim();
+
+            const ghost = document.createElement('article');
+            ghost.className = 'guestbook-note guestbook-note-ghost';
+            ghost.style.backgroundColor = DRAFT_COLOR;
+            ghost.style.left = '0px';
+            ghost.style.top = '0px';
+            ghost.style.position = 'fixed';
+            ghost.style.zIndex = '90';
+            ghost.style.pointerEvents = 'none';
+
+            const nameEl = document.createElement('p');
+            nameEl.className = 'guestbook-note-name';
+            nameEl.textContent = name;
+
+            const messageEl = document.createElement('p');
+            messageEl.className = 'guestbook-note-message';
+            messageEl.textContent = message;
+
+            const dateEl = document.createElement('p');
+            dateEl.className = 'guestbook-note-date';
+            dateEl.textContent = getTodayLabel();
+
+            ghost.appendChild(nameEl);
+            ghost.appendChild(messageEl);
+            ghost.appendChild(dateEl);
+            document.body.appendChild(ghost);
+            return ghost;
+        }
+
+        function getBoardMetrics() {
+            const rect = guestbookBoard.getBoundingClientRect();
+            return {
+                width: rect.width,
+                height: rect.height,
+                noteMaxX: rect.width - PIN_DOCK_WIDTH - NOTE_SIZE.width - 8,
+                noteMaxY: rect.height - NOTE_SIZE.height - 8
+            };
+        }
+
+        function getNoteById(id) {
+            return guestbookState.notes.find(note => note.id === id);
+        }
+
+        function getPinById(id) {
+            return guestbookState.pins.find(pin => pin.id === id);
+        }
+
+        function notePositionPx(note, metrics) {
+            const x = clamp((note.xPct ?? 0.1) * metrics.width, 8, metrics.noteMaxX);
+            const y = clamp((note.yPct ?? 0.1) * metrics.height, 8, metrics.noteMaxY);
+            return { x, y };
+        }
+
+        function pinPositionPx(pin, metrics, notePositions) {
+            if (pin.noteId && notePositions[pin.noteId]) {
+                const notePos = notePositions[pin.noteId];
+                const x = notePos.x + clamp(pin.offsetXPct ?? 0.5, 0.1, 0.9) * NOTE_SIZE.width - PIN_SIZE / 2;
+                const y = notePos.y + clamp(pin.offsetYPct ?? 0.12, 0.08, 0.3) * NOTE_SIZE.height - PIN_SIZE / 2;
+                return {
+                    x: clamp(x, 4, metrics.width - PIN_SIZE - 4),
+                    y: clamp(y, 4, metrics.height - PIN_SIZE - 4)
+                };
+            }
+            return {
+                x: clamp((pin.xPct ?? 0.9) * metrics.width, 4, metrics.width - PIN_SIZE - 4),
+                y: clamp((pin.yPct ?? 0.2) * metrics.height, 4, metrics.height - PIN_SIZE - 4)
+            };
+        }
+
+        function renderGuestbookBoard() {
+            const metrics = getBoardMetrics();
+            const notePositions = {};
+            guestbookNotesLayer.innerHTML = '';
+            guestbookPinsLayer.innerHTML = '';
+
+            guestbookState.notes.forEach(note => {
+                const pos = notePositionPx(note, metrics);
+                notePositions[note.id] = pos;
+
+                const noteEl = document.createElement('article');
+                noteEl.className = `guestbook-note ${note.pinnedBy ? 'is-pinned' : ''}`;
+                noteEl.dataset.noteId = note.id;
+                noteEl.style.left = `${pos.x}px`;
+                noteEl.style.top = `${pos.y}px`;
+                noteEl.style.backgroundColor = note.color || NOTE_COLORS[0];
+                noteEl.style.transform = `rotate(${note.rotation || -2}deg)`;
+
+                const name = document.createElement('p');
+                name.className = 'guestbook-note-name';
+                name.textContent = note.name || 'anonymous';
+
+                const message = document.createElement('p');
+                message.className = 'guestbook-note-message';
+                message.textContent = note.message || '';
+
+                const date = document.createElement('p');
+                date.className = 'guestbook-note-date';
+                date.textContent = note.date || '';
+
+                noteEl.appendChild(name);
+                noteEl.appendChild(message);
+                noteEl.appendChild(date);
+                noteEl.addEventListener('pointerdown', (event) => startNoteDrag(note.id, event));
+                guestbookNotesLayer.appendChild(noteEl);
+            });
+
+            guestbookState.pins.forEach(pin => {
+                const pos = pinPositionPx(pin, metrics, notePositions);
+                const pinEl = document.createElement('button');
+                pinEl.type = 'button';
+                pinEl.className = `guestbook-pin ${pin.noteId ? 'is-pinned' : ''}`;
+                pinEl.dataset.pinId = pin.id;
+                pinEl.style.left = `${pos.x}px`;
+                pinEl.style.top = `${pos.y}px`;
+                pinEl.setAttribute('aria-label', pin.noteId ? 'Pinned note marker' : 'Drag pin');
+                pinEl.textContent = '📍';
+                pinEl.addEventListener('pointerdown', (event) => startPinDrag(pin.id, event));
+                guestbookPinsLayer.appendChild(pinEl);
+            });
+        }
+
+        function startNoteDrag(noteId, event) {
+            const note = getNoteById(noteId);
+            if (!note || note.pinnedBy) return;
+
+            const noteEl = event.currentTarget;
+            const metrics = getBoardMetrics();
+            const pos = notePositionPx(note, metrics);
+
+            postitDragState = {
+                type: 'note',
+                id: noteId,
+                element: noteEl,
+                startClientX: event.clientX,
+                startClientY: event.clientY,
+                originX: pos.x,
+                originY: pos.y,
+                currentX: pos.x,
+                currentY: pos.y
+            };
+            noteEl.setPointerCapture?.(event.pointerId);
+        }
+
+        function startPinDrag(pinId, event) {
+            const pin = getPinById(pinId);
+            if (!pin) return;
+
+            if (pin.noteId) {
+                const linkedNote = getNoteById(pin.noteId);
+                if (linkedNote) linkedNote.pinnedBy = null;
+                pin.noteId = null;
+            }
+
+            const pinEl = event.currentTarget;
+            const metrics = getBoardMetrics();
+            const pos = {
+                x: parseFloat(pinEl.style.left) || (pin.xPct ?? 0.9) * metrics.width,
+                y: parseFloat(pinEl.style.top) || (pin.yPct ?? 0.2) * metrics.height
+            };
+
+            postitDragState = {
+                type: 'pin',
+                id: pinId,
+                element: pinEl,
+                startClientX: event.clientX,
+                startClientY: event.clientY,
+                originX: pos.x,
+                originY: pos.y,
+                currentX: pos.x,
+                currentY: pos.y
+            };
+            pinEl.setPointerCapture?.(event.pointerId);
+        }
+
+        function startDraftDrag(event) {
+            if (event.target.closest('input, textarea, button')) return;
+            if (!guestbookMessageInput.value.trim()) {
+                guestbookMessageInput.focus();
+                return;
+            }
+
+            const draftRect = guestbookDraft.getBoundingClientRect();
+            const dragGhost = createDraftGhost();
+            postitDragState = {
+                type: 'draft',
+                ghost: dragGhost,
+                offsetX: event.clientX - draftRect.left,
+                offsetY: event.clientY - draftRect.top,
+                currentClientX: event.clientX,
+                currentClientY: event.clientY
+            };
+
+            dragGhost.style.left = `${event.clientX - postitDragState.offsetX}px`;
+            dragGhost.style.top = `${event.clientY - postitDragState.offsetY}px`;
+            guestbookDraft.setPointerCapture?.(event.pointerId);
+        }
+
+        function updateDragPosition(event) {
+            if (!postitDragState) return;
+
+            const metrics = getBoardMetrics();
+            const deltaX = event.clientX - postitDragState.startClientX;
+            const deltaY = event.clientY - postitDragState.startClientY;
+            let nextX = postitDragState.originX + deltaX;
+            let nextY = postitDragState.originY + deltaY;
+
+            if (postitDragState.type === 'note') {
+                nextX = clamp(nextX, 8, metrics.noteMaxX);
+                nextY = clamp(nextY, 8, metrics.noteMaxY);
+            } else if (postitDragState.type === 'pin') {
+                nextX = clamp(nextX, 4, metrics.width - PIN_SIZE - 4);
+                nextY = clamp(nextY, 4, metrics.height - PIN_SIZE - 4);
+            } else {
+                postitDragState.currentClientX = event.clientX;
+                postitDragState.currentClientY = event.clientY;
+                postitDragState.ghost.style.left = `${event.clientX - postitDragState.offsetX}px`;
+                postitDragState.ghost.style.top = `${event.clientY - postitDragState.offsetY}px`;
+                return;
+            }
+
+            postitDragState.currentX = nextX;
+            postitDragState.currentY = nextY;
+            postitDragState.element.style.left = `${nextX}px`;
+            postitDragState.element.style.top = `${nextY}px`;
+        }
+
+        function finishDrag() {
+            if (!postitDragState) return;
+
+            const metrics = getBoardMetrics();
+            if (postitDragState.type === 'note') {
+                const note = getNoteById(postitDragState.id);
+                if (note) {
+                    note.xPct = postitDragState.currentX / metrics.width;
+                    note.yPct = postitDragState.currentY / metrics.height;
+                }
+            } else if (postitDragState.type === 'pin') {
+                const pin = getPinById(postitDragState.id);
+                if (pin) {
+                    pin.xPct = postitDragState.currentX / metrics.width;
+                    pin.yPct = postitDragState.currentY / metrics.height;
+
+                    const pinCenterX = postitDragState.currentX + PIN_SIZE / 2;
+                    const pinCenterY = postitDragState.currentY + PIN_SIZE / 2;
+                    const noteElements = Array.from(guestbookNotesLayer.querySelectorAll('.guestbook-note'));
+
+                    const targetNoteElement = noteElements.find(noteEl => {
+                        const rect = noteEl.getBoundingClientRect();
+                        return pinCenterX >= rect.left - guestbookBoard.getBoundingClientRect().left &&
+                            pinCenterX <= rect.right - guestbookBoard.getBoundingClientRect().left &&
+                            pinCenterY >= rect.top - guestbookBoard.getBoundingClientRect().top &&
+                            pinCenterY <= rect.bottom - guestbookBoard.getBoundingClientRect().top;
+                    });
+
+                    if (targetNoteElement) {
+                        const noteId = targetNoteElement.dataset.noteId;
+                        const note = getNoteById(noteId);
+                        if (note && !note.pinnedBy) {
+                            note.pinnedBy = pin.id;
+                            pin.noteId = note.id;
+                            const noteLeft = parseFloat(targetNoteElement.style.left) || 0;
+                            const noteTop = parseFloat(targetNoteElement.style.top) || 0;
+                            pin.offsetXPct = clamp((pinCenterX - noteLeft) / NOTE_SIZE.width, 0.12, 0.88);
+                            pin.offsetYPct = clamp((pinCenterY - noteTop) / NOTE_SIZE.height, 0.08, 0.32);
+                        }
+                    }
+                }
+            } else if (postitDragState.type === 'draft') {
+                const boardRect = guestbookBoard.getBoundingClientRect();
+                const insideBoard =
+                    postitDragState.currentClientX >= boardRect.left &&
+                    postitDragState.currentClientX <= boardRect.right - PIN_DOCK_WIDTH &&
+                    postitDragState.currentClientY >= boardRect.top &&
+                    postitDragState.currentClientY <= boardRect.bottom;
+
+                if (insideBoard) {
+                    const xPx = postitDragState.currentClientX - boardRect.left - NOTE_SIZE.width / 2;
+                    const yPx = postitDragState.currentClientY - boardRect.top - 28;
+                    const note = buildNewNote(xPx, yPx);
+                    addNoteToBoard(note);
+                }
+            }
+
+            saveGuestbookState();
+            if (postitDragState.type === 'draft' && postitDragState.ghost) {
+                postitDragState.ghost.remove();
+            }
+            postitDragState = null;
+            renderGuestbookBoard();
+        }
+
+        function initializeGuestbookBoard() {
+            guestbookState = loadGuestbookState();
+            renderGuestbookBoard();
+
+            guestbookDraft.addEventListener('pointerdown', startDraftDrag);
+            guestbookPlaceButton.addEventListener('click', () => {
+                const note = buildNewNote(16, 20);
+                addNoteToBoard(note);
+            });
+
+            window.addEventListener('pointermove', updateDragPosition);
+            window.addEventListener('pointerup', finishDrag);
+            window.addEventListener('pointercancel', finishDrag);
+            window.addEventListener('resize', renderGuestbookBoard);
+        }
+
+        initializeGuestbookBoard();
+
         Promise.all([
             fetch('projects.json').then(res => res.json()),
             fetch('sidequests.json').then(res => res.json())
@@ -262,5 +713,11 @@
             });
 
     </script>
+    <footer class="w-full mt-12 py-12 flex flex-col items-center space-y-1 border-t border-stone-200/40">
+        <div class="footer-brand text-center text-stone-800 select-none">
+            lisa schneider
+        </div>
+        <p class="footer-made-line">made in Germany 🇩🇪</p>
+    </footer>
 </body>
 </html>

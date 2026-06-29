@@ -100,10 +100,10 @@
             card.className = 'project-card block bg-white rounded-[1.75rem] border-2 border-stone-800 shadow-[8px_8px_0_0_#1a1a1a] overflow-hidden group';
             const imageSrc = project.imagePath || project.heroImage || '';
             card.innerHTML = `
-                <div class="relative h-72 overflow-hidden bg-stone-200">
+                <div class="project-card-media relative h-72 overflow-hidden">
                     ${imageSrc ? `<img src="${imageSrc}" alt="${project.title || 'Side quest image'}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />` : `
-                        <div class="w-full h-full ${project.gradientSection || 'bg-gradient-to-br from-stone-100 to-stone-300'} flex items-center justify-center p-6">
-                            <div class="w-full h-full ${project.iconBackground || 'bg-stone-400/30'} rounded-2xl border-2 border-dashed ${project.iconBorder || 'border-stone-500/40'} flex items-center justify-center">
+                        <div class="w-full h-full ${project.gradientSection || 'bg-gradient-to-br from-stone-100 to-stone-300'} flex items-center justify-center p-0">
+                            <div class="w-full h-full ${project.iconBackground || 'bg-stone-400/30'} ${project.iconBorder || 'border-stone-500/40'} flex items-center justify-center">
                                 ${project.iconSvg || '<svg class="w-8 h-8 text-stone-500/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>'}
                             </div>
                         </div>
@@ -144,6 +144,7 @@
         <div class="footer-brand text-center text-stone-800 select-none">
             lisa schneider
         </div>
+        <p class="footer-made-line">made in Germany 🇩🇪</p>
     </footer>
 </body>
 </html>

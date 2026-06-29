@@ -12,7 +12,8 @@
     "heroVideoPath": "assets/videos/Window_into_a_world_3.mp4",
     "videoPath": "",
     "processVideos": [
-      "assets/videos/Window_into_a_world_1.mp4"
+      "assets/videos/Window_into_a_world_1.mp4",
+      "assets/videos/window_1.mp4"
 
     ],
     "process": "My process began with digital research, drawing inspiration from projection mapping artists on Behance and TikTok. To animate the static image, I deconstructed the painting in Photoshop, creating distinct layers for elements like plants to ensure fluid movement. I experimented with narrative techniques, integrating ambient jungle sounds and constructing a physical museum scene around the canvas. Following feedback from a Mini-Expo that highlighted the need for a stronger, clearer storyline, I refined the project by developing a narrative centered on a group of friends visiting a museum, allowing the audience to follow their journey through the visuals and audio.",
@@ -33,7 +34,7 @@
     "timeline": "3 Months",
     "tools": "Photoshop, After Effects, MadMapper",
     "client": "Minor Audio & Visual Design",
-    "imagePath": "assets/pictures/borderland_subversion.jpg",
+    "imagePath": "assets/pictures/borderland_subversion.jpeg",
     "heroVideoPath": "assets/videos/Borderland_subversion_4.mp4",
     "videoPath": "",
     "process": "Our process was highly iterative, beginning with broad creative research using the 2023 World Press Photo contest as a foundation to identify themes of displacement and trauma. We moved from initial abstract concepts involving the trolley problem to a concrete, anchored narrative based on the real-life journey of Maria Hernandez. Throughout the seven-week project, we developed five distinct prototypes; each stage involved significant physical and digital testing, such as simulating the exhibition space with scale models and exploring spatial layouts using curtains and projectors. We learned to adapt our vision to physical constraints, such as shifting from a door-based concept to a curtain-gap design, and we utilized MadMapper to project animated paths that guided visitors through the space. We also made the intentional choice to exclude audio, concluding after testing that the visual and textual elements were powerful enough on their own and that sound would have been a distracting, unnecessary addition.",
