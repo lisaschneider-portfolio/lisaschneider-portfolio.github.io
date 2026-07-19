@@ -16,7 +16,7 @@
         </button>
     </div>
 
-    <header class="w-full px-4 sm:px-6 py-6 md:py-8">
+    <header class="fixed-top-nav w-full px-4 sm:px-6 py-6 md:py-8">
         <nav class="grid grid-cols-3 items-center max-w-xl mx-auto bg-transparent">
             <div class="text-left flex items-center">
                 <button type="button" class="md:hidden inline-flex items-center justify-center border-2 border-stone-800 rounded-full px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-stone-800" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-nav-menu-index">
@@ -25,13 +25,13 @@
                 <a href="projects.html" class="hidden md:inline text-xs font-extrabold tracking-tight text-stone-800 hover:opacity-60 transition-opacity">Projects</a>
             </div>
             <div class="text-center flex justify-center">
-                <a href="index.html" class="inline-flex items-center justify-center border-2 border-stone-800 rounded-full p-1 hover:bg-stone-100/50 transition-colors">
+                <a href="index.html" class="inline-flex items-center justify-center border-2 border-stone-800 rounded-full p-1.5 md:p-2 hover:bg-stone-100/50 transition-colors">
                     <canvas id="nav-particle-canvas" class="block cursor-pointer"></canvas>
                 </a>
             </div>
             <div class="text-right flex justify-end items-center gap-2">
                 <a href="sidequests.html" class="hidden md:inline text-xs font-extrabold tracking-tight text-stone-800 hover:opacity-60 transition-opacity">Side quests</a>
-                <button type="button" class="a11y-toggle md:hidden" data-wcag-toggle aria-label="Toggle WCAG accessibility mode" aria-pressed="false">
+                <button type="button" class="a11y-toggle nav-inline-toggle md:hidden" data-wcag-toggle aria-label="Toggle WCAG accessibility mode" aria-pressed="false">
                     <span class="a11y-switch-track" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
                 </button>
             </div>
@@ -45,50 +45,59 @@
     </header>
 
     <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 mt-12 md:mt-16 space-y-24 md:space-y-32 overflow-x-hidden">
-        <section class="flex flex-col items-center text-center space-y-4 max-w-2xl mx-auto px-2 sm:px-0">
-            <p class="text-3xl md:text-4xl lg:text-5xl font-semibold text-stone-400 tracking-wide">Hi, I'm Lisa</p>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none uppercase">product designer</h1>
-            <p class="text-stone-600 font-medium text-base md:text-lg max-w-xl leading-relaxed">
-                who bridges marketing and strategy. In a world where every interface screams for attention, I build calm, intentional experiences that focus on what actually matters, creating tools that serve the user, not the algorithm.
-            </p>
+        <section class="max-w-4xl mx-auto px-2 sm:px-0">
+            <div class="flex items-center justify-center gap-2 sm:gap-4 md:gap-8">
+                <canvas id="hero-left-particle-canvas" class="hidden sm:block shrink-0 -translate-y-2 md:-translate-y-4" aria-hidden="true"></canvas>
+                <div class="flex flex-col items-center text-center space-y-4 max-w-2xl">
+                    <p class="text-3xl md:text-4xl lg:text-5xl font-semibold text-stone-400 tracking-wide">Hi, I'm Lisa</p>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none uppercase whitespace-nowrap">product designer</h1>
+                    <p class="text-stone-600 font-medium text-base md:text-lg max-w-xl leading-relaxed">
+                        who connects strategy and design. I design with simplicity in mind, creating clear, purposeful experiences that help people focus on <span class="asym-double-underline">what matters most</span>.
+                    </p>
+                </div>
+                <canvas id="hero-right-particle-canvas" class="hidden sm:block shrink-0 translate-y-10 md:translate-y-14" aria-hidden="true"></canvas>
+            </div>
         </section>
 
         <section id="projects" class="flex flex-col items-center text-center space-y-4 overflow-visible">
             <div class="space-y-2">
                 <h2 class="text-3xl md:text-4xl font-black tracking-tight uppercase">must see 👀</h2>
-                <p class="text-stone-400 font-medium text-sm">Recent projects I am proud to have shaped</p>
+                <p class="text-stone-600 font-medium text-base md:text-lg max-w-xl leading-relaxed mx-auto">Recent projects I am proud to have shaped</p>
             </div>
 
-            <div class="w-full max-w-xl md:max-w-4xl mx-auto relative">
-                <button
-                    id="carousel-prev"
-                    type="button"
-                    aria-label="Previous carousel card"
-                    class="absolute left-0 md:-left-3 top-1/2 -translate-y-1/2 z-40 inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-stone-800 bg-white text-stone-800 shadow-[3px_3px_0_0_#1a1a1a] hover:bg-stone-100 active:translate-y-[1px] transition-all"
-                >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
+            <div class="w-full max-w-xl md:max-w-4xl mx-auto relative pt-20 md:pt-24">
+                <canvas id="carousel-left-flash-canvas" class="hidden lg:block absolute -left-20 top-[30%] -translate-y-1/2 z-10" aria-hidden="true"></canvas>
+                <div class="relative">
+                    <button
+                        id="carousel-prev"
+                        type="button"
+                        aria-label="Previous carousel card"
+                        class="absolute left-0 md:-left-3 top-1/2 -translate-y-1/2 z-40 inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-stone-800 bg-white text-stone-800 shadow-[3px_3px_0_0_#1a1a1a] hover:bg-stone-100 active:translate-y-[1px] transition-all"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
 
-                <div class="flex justify-center items-center relative min-h-[320px] md:min-h-[440px] select-none overflow-visible" id="carousel-track"></div>
+                    <div class="flex justify-center items-center relative min-h-[320px] md:min-h-[440px] select-none overflow-visible" id="carousel-track"></div>
 
-                <button
-                    id="carousel-next"
-                    type="button"
-                    aria-label="Next carousel card"
-                    class="absolute right-0 md:-right-3 top-1/2 -translate-y-1/2 z-40 inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-stone-800 bg-white text-stone-800 shadow-[3px_3px_0_0_#1a1a1a] hover:bg-stone-100 active:translate-y-[1px] transition-all"
-                >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-            </div>
+                    <button
+                        id="carousel-next"
+                        type="button"
+                        aria-label="Next carousel card"
+                        class="absolute right-0 md:-right-3 top-1/2 -translate-y-1/2 z-40 inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-stone-800 bg-white text-stone-800 shadow-[3px_3px_0_0_#1a1a1a] hover:bg-stone-100 active:translate-y-[1px] transition-all"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
 
-            <div class="pt-2 w-full flex justify-center px-4 sm:px-0">
-                <button id="project-action-button" class="carousel-cta inline-flex items-center justify-center min-h-[52px] w-full sm:w-auto px-6 py-4 bg-[#16a34a] text-white rounded-2xl font-extrabold text-xs uppercase tracking-wider shadow-md hover:bg-[#166534] hover:shadow-lg transition-all duration-300 transform active:scale-95">
-                    view project
-                </button>
+                <div class="absolute left-1/2 -translate-x-1/2 top-2 md:top-3 z-50 w-[calc(100%-2rem)] sm:w-auto flex justify-center px-2">
+                    <button id="project-action-button" class="carousel-cta inline-flex items-center justify-center min-h-[56px] w-full sm:w-auto px-7 py-4 bg-[#16a34a] text-white rounded-2xl font-extrabold text-base md:text-lg uppercase tracking-wide whitespace-nowrap shadow-md hover:bg-[#166534] hover:shadow-lg transition-all duration-300 transform active:scale-95">
+                        view project
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -96,49 +105,40 @@
         <section class="flex flex-col items-center text-center space-y-8 max-w-2xl mx-auto mt-16">
             <div class="space-y-2">
                 <h2 class="text-3xl md:text-4xl font-black tracking-tight uppercase">in case you need me for...</h2>
-                <p class="text-stone-400 font-medium text-sm">design that matters, not only sells, and is ready for something new</p>
+                <p class="text-stone-600 font-medium text-base md:text-lg max-w-xl leading-relaxed">design that matters, not only sells, and is ready for something new</p>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-3 max-w-xl">
-                <span class="service-pill bg-[#dcfce7] text-[#16a34a] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Brand Strategy</span>
-                <span class="service-pill bg-[#dcfce7] text-[#16a34a] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Visual Identity</span>
-                <span class="service-pill bg-[#dcfce7] text-[#16a34a] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Typography</span>
-                <span class="service-pill bg-[#dcfce7] text-[#16a34a] px-5 py-2.5 rounded-2xl font-bold text-xs tracking-tight">Design Systems</span>
+            <div class="flex flex-wrap justify-center gap-3 w-full max-w-3xl overflow-visible px-2">
+                <span class="service-pill bg-[#dcfce7] text-[#16a34a] px-7 py-3.5 rounded-2xl font-extrabold text-sm tracking-tight whitespace-nowrap">Brand Strategy</span>
+                <span class="service-pill bg-[#dcfce7] text-[#16a34a] px-7 py-3.5 rounded-2xl font-extrabold text-sm tracking-tight whitespace-nowrap">Visual Identity</span>
+                <span class="service-pill bg-[#dcfce7] text-[#16a34a] px-7 py-3.5 rounded-2xl font-extrabold text-sm tracking-tight whitespace-nowrap">Typography</span>
+                <span class="service-pill bg-[#dcfce7] text-[#16a34a] px-7 py-3.5 rounded-2xl font-extrabold text-sm tracking-tight whitespace-nowrap">Design Systems</span>
             </div>
 
-            <a href="mailto:lisa.schneider.business@gmail.com" class="chat-cta inline-flex items-center justify-center bg-[#16a34a] text-white px-8 py-4 rounded-2xl font-extrabold text-xs uppercase tracking-wider shadow-md hover:bg-[#166534] hover:shadow-lg transition-all duration-300 transform active:scale-95 mt-2">
+            <a href="mailto:lisa.schneider.business@gmail.com" class="chat-cta inline-flex items-center justify-center bg-[#16a34a] text-white px-9 py-4 rounded-2xl font-extrabold text-base md:text-lg uppercase tracking-wide whitespace-nowrap shadow-md hover:bg-[#166534] hover:shadow-lg transition-all duration-300 transform active:scale-95 mt-2">
                 let's chat!
             </a>
         </section>
 
         <!-- "About me" Section -->
         <section id="side-quests" class="flex flex-col items-center text-center space-y-12 overflow-visible mt-24">
-            <div class="space-y-4 max-w-xl">
-                <h2 class="text-3xl md:text-4xl font-black tracking-tight uppercase">about me</h2>
-                <p class="text-stone-800 font-bold text-lg md:text-xl leading-relaxed tracking-tight">
-                    I’m a designer who believes the best digital work feels as tangible as a handmade craft.
-                </p>
-                <p class="text-stone-400 text-sm font-medium leading-relaxed max-w-md mx-auto">
-                    Originally from a small village in Germany and now located in Utrecht in the Netherlands, I spend my time balancing my love for traditional art with my drive to build accessible digital solutions that bring people together.
-                </p>
-            </div>
-
-            <!-- About cards -->
-            <div class="w-full flex overflow-x-auto md:overflow-x-visible md:justify-center items-center no-scrollbar px-4 md:px-0 py-8 space-x-4 md:space-x-3 snap-x snap-mandatory min-h-[280px]">
-                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-stone-300 rounded-[1.75rem] p-0 flex flex-col justify-end transform -rotate-6 md:translate-y-4 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
-                    <img src="assets/pictures/germany.jpg" alt="Germany" class="absolute inset-0 w-full h-full object-cover" />
+            <div class="w-full max-w-5xl mx-auto flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap md:items-start md:justify-center gap-6 md:gap-8 lg:gap-10">
+                <div class="order-1 md:order-2 space-y-4 max-w-xl md:max-w-[24rem] lg:max-w-xl md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-black tracking-tight uppercase">about me</h2>
+                    <p class="text-stone-600 font-medium text-base md:text-lg max-w-xl leading-relaxed md:mx-0 mx-auto">
+                        I grew up in a small village in Germany, where my love for art and creativity started. Later, traveling and experiencing new cultures sparked my curiosity and eventually brought me to the Netherlands, where I now live.
+                    </p>
                 </div>
-                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#df6e67] rounded-[1.75rem] p-0 flex flex-col justify-end transform rotate-3 md:-translate-y-2 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
-                    <img src="assets/pictures/3D.jpg" alt="3D" class="absolute inset-0 w-full h-full object-cover" />
+                <div class="order-2 md:order-1 flex justify-center md:justify-start">
+                    <div class="about-card w-[230px] h-[290px] md:w-[220px] md:h-[280px] lg:w-[270px] lg:h-[340px] bg-[#df6e67] rounded-[2rem] p-0 flex flex-col justify-end transform rotate-3 md:-translate-y-2 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
+                        <img src="assets/pictures/3D.jpg" alt="3D" class="absolute inset-0 w-full h-full object-cover" />
+                    </div>
                 </div>
-                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#67b1df] rounded-[1.75rem] p-0 flex flex-col justify-end transform -rotate-3 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
-                    <img src="assets/pictures/lisa-portrait.jpg" alt="Lisa Schneider" class="absolute inset-0 w-full h-full object-cover" />
-                </div>
-                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#e167be] rounded-[1.75rem] p-0 flex flex-col justify-end transform rotate-6 md:translate-y-5 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
-                    <img src="assets/pictures/netherlands.jpg" alt="Netherlands" class="absolute inset-0 w-full h-full object-cover" />
-                </div>
-                <div class="about-card shrink-0 snap-center w-[165px] h-[195px] bg-[#a287df] rounded-[1.75rem] p-0 flex flex-col justify-end transform -rotate-6 md:-translate-y-1 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
-                    <img src="assets/pictures/DDW.jpg" alt="DDW" class="absolute inset-0 w-full h-full object-cover" />
+                <div class="hidden md:flex md:flex-col md:order-3 items-center md:items-end md:self-start md:-translate-y-6">
+                    <canvas id="about-right-flower-canvas" class="mb-1" aria-hidden="true"></canvas>
+                    <div class="about-card w-[210px] h-[265px] md:w-[185px] md:h-[235px] lg:w-[225px] lg:h-[285px] bg-[#a287df] rounded-[2rem] p-0 flex flex-col justify-end transform -rotate-4 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
+                        <img src="assets/pictures/DDW.jpg" alt="DDW" class="absolute inset-0 w-full h-full object-cover" />
+                    </div>
                 </div>
             </div>
         </section>

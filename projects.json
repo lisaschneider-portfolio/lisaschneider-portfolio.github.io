@@ -19,7 +19,7 @@
       "assets/pictures/WGE_game_screen.png",
       "assets/pictures/WGE_Feedback_screen.png"
     ],
-    "tags": ["UX Research", "HealthTech", "System Thinking"]
+    "tags": ["UX Research", "HealthTech", "Service Design", "Gamification"]
   },
   "vistar-media": {
     "title": "Vistar Media",
@@ -74,6 +74,6 @@
       "assets/pictures/Kvartett_ikea_3.jpg",
       "assets/pictures/Kvartett_ikea_4.jpg"
     ],
-    "tags": ["Product Design", "System Thinking"]
+    "tags": ["Product Design", "Service Design", "Gamification"]
   }
 }
