@@ -8,6 +8,7 @@ html, body {
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
 }
 
 html::-webkit-scrollbar,

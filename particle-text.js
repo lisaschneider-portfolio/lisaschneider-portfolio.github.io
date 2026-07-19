@@ -10,13 +10,13 @@
   const FONT_FAMILY = 'Inter';
   const FONT_WEIGHT = 800;
   const LETTER_SPACING = 1.6;
-  const NAV_LETTER_SPACING = 1.1;
+  const NAV_LETTER_SPACING = 0.8;
   const COLOR = '#16a34a';
   const ACCESSIBLE_COLOR = '#ffffff';
   const TEXT_PADDING_X = 20;
   const TEXT_PADDING_Y = 12;
-  const NAV_TEXT_PADDING_X = 12;
-  const NAV_TEXT_PADDING_Y = 8;
+  const NAV_TEXT_PADDING_X = 8;
+  const NAV_TEXT_PADDING_Y = 6;
   const PARTICLE_RADIUS = 1.3;
   const SCATTER_AMOUNT = 2.6;
   const REPULSION_RADIUS = 72;
@@ -396,10 +396,10 @@
     getFontSize() {
       const vw = window.innerWidth;
       if (this.isNavCanvas) {
-        if (vw < 480) return 30;
-        if (vw < 640) return 34;
-        if (vw < 768) return 36;
-        return 38;
+        if (vw < 480) return 20;
+        if (vw < 640) return 24;
+        if (vw < 768) return 28;
+        return 36;
       }
 
       if (vw < 480) return 34;
