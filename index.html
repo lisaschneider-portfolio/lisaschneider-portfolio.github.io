@@ -46,9 +46,17 @@
             <div class="text-right flex justify-end items-center gap-2">
                 <a href="sidequests.html" class="hidden md:inline text-xs font-extrabold tracking-tight text-stone-800 hover:opacity-60 transition-opacity">Side quests</a>
                 <div class="md:hidden flex flex-col items-center gap-1">
-                    <button type="button" class="a11y-toggle nav-inline-toggle" data-wcag-toggle aria-label="Toggle WCAG accessibility mode" aria-pressed="false">
-                        <span class="a11y-switch-track" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
-                    </button>
+                    <div class="flex items-center gap-2">
+                        <a class="a11y-social-link a11y-social-link-mobile" href="https://www.linkedin.com/in/lisa-marie-schneider/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn profile">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+                                <rect x="1" y="1" width="22" height="22" rx="5" fill="#0a66c2" />
+                                <text x="5.45" y="17.6" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700">in</text>
+                            </svg>
+                        </a>
+                        <button type="button" class="a11y-toggle nav-inline-toggle" data-wcag-toggle aria-label="Toggle WCAG accessibility mode" aria-pressed="false">
+                            <span class="a11y-switch-track" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
+                        </button>
+                    </div>
                     <div class="a11y-mobile-mode-label" aria-hidden="true">
                         <span>High</span>
                         <span>Contrast</span>
@@ -148,6 +156,16 @@
                     <p class="text-stone-600 font-medium text-base md:text-lg max-w-xl leading-relaxed md:mx-0 mx-auto">
                         I grew up in a small village in Germany, where my love for art and creativity started. Later, traveling and experiencing new cultures sparked my curiosity and eventually brought me to the Netherlands, where I now live.
                     </p>
+                    <div class="about-map-wrap mx-auto md:mx-0" aria-hidden="true">
+                        <img
+                            src="assets/pictures/Germany_netherlands.png"
+                            data-theme-image
+                            data-default-src="assets/pictures/Germany_netherlands.png"
+                            data-accessible-src="assets/pictures/Germany_netherlands_white.png"
+                            alt=""
+                            class="about-map-bg"
+                        />
+                    </div>
                 </div>
                 <div class="order-2 md:order-1 flex justify-center md:justify-start">
                     <div class="about-card w-[230px] h-[290px] md:w-[220px] md:h-[280px] lg:w-[270px] lg:h-[340px] bg-[#df6e67] rounded-[2rem] p-0 flex flex-col justify-end transform rotate-3 md:-translate-y-2 md:hover:rotate-0 md:hover:scale-110 md:hover:shadow-2xl cursor-pointer relative overflow-hidden">
@@ -213,6 +231,8 @@
             actionButton.innerText = `view ${data.title}`;
         }
 
+        let lastArrowPointerUpAt = 0;
+
         function goToPreviousCard() {
             if (!totalCards) return;
             activeIndex = (activeIndex - 1 + totalCards) % totalCards;
@@ -256,28 +276,34 @@
             currentTranslate = 0; layoutCarousel(0); updateMetadata(activeIndex);
         }
 
-        prevButton.addEventListener('click', goToPreviousCard);
-        nextButton.addEventListener('click', goToNextCard);
+        function bindArrowControl(button, handler) {
+            button.addEventListener('pointerup', event => {
+                // Some touch devices occasionally drop click; pointerup keeps navigation responsive.
+                lastArrowPointerUpAt = Date.now();
+                event.preventDefault();
+                handler();
+            });
+
+            button.addEventListener('click', () => {
+                // Ignore synthetic click fired right after pointerup on touch input.
+                if (Date.now() - lastArrowPointerUpAt < 350) return;
+                handler();
+            });
+        }
+
+        bindArrowControl(prevButton, goToPreviousCard);
+        bindArrowControl(nextButton, goToNextCard);
 
         Promise.all([
-            fetch('projects.json').then(res => res.json()),
-            fetch('sidequests.json').then(res => res.json())
+            fetch('projects.json').then(res => res.json())
         ])
-            .then(([projectsData, sidequestsData]) => {
+            .then(([projectsData]) => {
                 const allProjects = normalizeCollection(projectsData).map(item => ({ ...item, kind: 'project' }));
-                const allSidequests = normalizeCollection(sidequestsData).map(item => ({ ...item, kind: 'sidequest' }));
 
-                const allowedProjects = ['vistar-media', 'wie-gaat-eerst', 'albert-heijn-techno'];
+                const allowedProjects = ['vistar-media', 'wie-gaat-eerst', 'ikea-kvartett'];
                 const featuredProjects = allProjects.filter(item => allowedProjects.includes(item.id));
-                const borderlandSidequest = allSidequests.find(item =>
-                    (item.title || '').toLowerCase() === 'borderland subversion'
-                );
 
-                const carouselItems = borderlandSidequest
-                    ? [...featuredProjects, borderlandSidequest]
-                    : featuredProjects;
-
-                createProjectCards(carouselItems);
+                createProjectCards(featuredProjects);
                 updateMetadata(0);
                 layoutCarousel(0);
             });

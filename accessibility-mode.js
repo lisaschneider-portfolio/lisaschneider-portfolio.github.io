@@ -29,12 +29,23 @@
       return button.querySelector('[data-wcag-label]');
     });
 
+    function updateThemeImages(isEnabled) {
+      const themedImages = Array.from(document.querySelectorAll('[data-theme-image]'));
+      themedImages.forEach(function (image) {
+        const defaultSrc = image.getAttribute('data-default-src');
+        const accessibleSrc = image.getAttribute('data-accessible-src');
+        if (!defaultSrc || !accessibleSrc) return;
+        image.setAttribute('src', isEnabled ? accessibleSrc : defaultSrc);
+      });
+    }
+
     function applyMode(isEnabled) {
       if (isEnabled) {
         document.body.setAttribute(THEME_ATTRIBUTE, ACCESSIBLE_THEME);
       } else {
         document.body.removeAttribute(THEME_ATTRIBUTE);
       }
+      updateThemeImages(isEnabled);
       buttons.forEach(function (button, index) {
         button.classList.toggle('is-active', isEnabled);
         button.setAttribute('aria-pressed', String(isEnabled));

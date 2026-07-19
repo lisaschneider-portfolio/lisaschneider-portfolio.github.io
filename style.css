@@ -137,6 +137,11 @@ canvas,
     cursor: var(--pixel-cursor-pointer) !important;
 }
 
+#carousel-prev,
+#carousel-next {
+    touch-action: manipulation;
+}
+
 .a11y-toggle-wrap {
     position: fixed;
     top: calc(2.75rem + env(safe-area-inset-top, 0px));
@@ -195,6 +200,22 @@ canvas,
     display: block;
 }
 
+.a11y-social-link rect {
+    fill: #0a66c2;
+}
+
+.a11y-social-link text {
+    fill: #ffffff;
+}
+
+body[data-theme='accessible'] .a11y-social-link rect {
+    fill: #ffffff !important;
+}
+
+body[data-theme='accessible'] .a11y-social-link text {
+    fill: #0a66c2 !important;
+}
+
 .a11y-mode-label {
     grid-column: 2;
     justify-self: center;
@@ -233,6 +254,16 @@ canvas,
     line-height: 0.86;
     text-transform: uppercase;
     text-align: center;
+}
+
+.a11y-social-link-mobile {
+    width: 2.35rem;
+    height: 2.35rem;
+}
+
+.a11y-social-link-mobile svg {
+    width: 100%;
+    height: 100%;
 }
 
 .a11y-toggle {
@@ -580,6 +611,22 @@ body[data-theme='accessible'] *::after {
 
 .about-card {
     box-shadow: 8px 8px 0 0 #000000;
+}
+
+.about-map-wrap {
+    position: relative;
+    width: min(100%, 27rem);
+    margin-top: 0.65rem;
+}
+
+.about-map-bg {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 #project-detail {
