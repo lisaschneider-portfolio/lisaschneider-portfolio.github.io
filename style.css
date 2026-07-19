@@ -140,8 +140,99 @@ canvas,
 .a11y-toggle-wrap {
     position: fixed;
     top: calc(2.75rem + env(safe-area-inset-top, 0px));
-    right: 1rem;
+    right: calc(2.5rem + env(safe-area-inset-right, 0px));
     z-index: 1100;
+}
+
+.a11y-toggle-stack {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 0.65rem;
+    row-gap: 0.35rem;
+    justify-items: end;
+    align-items: center;
+}
+
+.a11y-toggle-row {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2.25rem;
+}
+
+.a11y-social-link,
+.a11y-mode-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.a11y-social-link {
+    width: 3.25rem;
+    height: 3.25rem;
+    background: #0a66c2;
+    border-radius: 0.85rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.a11y-social-link:hover,
+.a11y-social-link:focus-visible {
+    opacity: 0.7;
+}
+
+.a11y-social-link:focus-visible,
+.a11y-mode-label:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 2px;
+}
+
+.a11y-social-link svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.a11y-mode-label {
+    grid-column: 2;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.28rem;
+    position: relative;
+    color: #1a1a1a;
+    width: 3.15rem;
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    line-height: 0.88;
+    text-align: center;
+}
+
+.a11y-mode-label:hover {
+    opacity: 0.75;
+}
+
+.a11y-mode-label span {
+    display: block;
+}
+
+.a11y-mobile-mode-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.22rem;
+    color: #1a1a1a;
+    font-size: 0.52rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    line-height: 0.86;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .a11y-toggle {
@@ -741,6 +832,9 @@ main {
     .chat-cta {
         width: 100%;
         max-width: 22rem;
+        font-size: 0.82rem !important;
+        line-height: 1.05;
+        padding: 0.85rem 0.95rem !important;
     }
 
     #side-quests .max-w-md,

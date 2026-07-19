@@ -11,9 +11,23 @@
 </head>
 <body class="min-h-screen relative overflow-x-hidden">
     <div class="a11y-toggle-wrap hidden md:block">
-        <button type="button" class="a11y-toggle" data-wcag-toggle aria-label="Toggle WCAG accessibility mode" aria-pressed="false">
-            <span class="a11y-switch-track" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
-        </button>
+        <div class="a11y-toggle-stack">
+            <div class="a11y-toggle-row">
+                <a class="a11y-social-link" href="https://www.linkedin.com/in/lisa-marie-schneider/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn profile">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+                        <rect x="1" y="1" width="22" height="22" rx="5" fill="#0a66c2" />
+                        <text x="5.45" y="17.6" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700">in</text>
+                    </svg>
+                </a>
+                <button type="button" class="a11y-toggle" data-wcag-toggle aria-label="Toggle WCAG accessibility mode" aria-pressed="false">
+                    <span class="a11y-switch-track" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
+                </button>
+            </div>
+            <div class="a11y-mode-label" aria-hidden="true">
+                <span>High</span>
+                <span>Contrast</span>
+            </div>
+        </div>
     </div>
 
     <header class="fixed-top-nav w-full px-4 sm:px-6 py-6 md:py-8">
@@ -31,9 +45,15 @@
             </div>
             <div class="text-right flex justify-end items-center gap-2">
                 <a href="sidequests.html" class="hidden md:inline text-xs font-extrabold tracking-tight text-stone-800 hover:opacity-60 transition-opacity">Side quests</a>
-                <button type="button" class="a11y-toggle nav-inline-toggle md:hidden" data-wcag-toggle aria-label="Toggle WCAG accessibility mode" aria-pressed="false">
-                    <span class="a11y-switch-track" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
-                </button>
+                <div class="md:hidden flex flex-col items-center gap-1">
+                    <button type="button" class="a11y-toggle nav-inline-toggle" data-wcag-toggle aria-label="Toggle WCAG accessibility mode" aria-pressed="false">
+                        <span class="a11y-switch-track" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
+                    </button>
+                    <div class="a11y-mobile-mode-label" aria-hidden="true">
+                        <span>High</span>
+                        <span>Contrast</span>
+                    </div>
+                </div>
             </div>
         </nav>
         <div id="mobile-nav-menu-index" class="hidden md:hidden max-w-xl mx-auto mt-3 rounded-2xl border-2 border-stone-800 bg-white px-4 py-3 shadow-[4px_4px_0_0_#1a1a1a] relative z-50">
