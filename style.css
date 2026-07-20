@@ -39,6 +39,36 @@ body {
     overflow-x: hidden;
 }
 
+::selection {
+    background: #86efac;
+    color: #052e16;
+}
+
+::-moz-selection {
+    background: #86efac;
+    color: #052e16;
+}
+
+body[data-theme='accessible'] ::selection {
+    background: #bfdbfe;
+    color: #1234db;
+}
+
+body[data-theme='accessible'] ::-moz-selection {
+    background: #bfdbfe;
+    color: #1234db;
+}
+
+body[data-page='home'][data-theme='accessible'] ::selection {
+    background: #bfdbfe;
+    color: #ffffff;
+}
+
+body[data-page='home'][data-theme='accessible'] ::-moz-selection {
+    background: #bfdbfe;
+    color: #ffffff;
+}
+
 .fixed-top-nav {
     position: fixed;
     top: 0;
@@ -126,7 +156,33 @@ label[for],
 .about-card,
 canvas,
 [id='carousel-track'] {
-    cursor: var(--pixel-cursor-pointer);
+    cursor: var(--pixel-cursor-pointer) !important;
+}
+
+/* Keep the green custom pointer on nested nodes inside clickable UI. */
+a *,
+button *,
+[role='button'] *,
+[onclick] *,
+.cursor-pointer * {
+    cursor: var(--pixel-cursor-pointer) !important;
+}
+
+a:hover,
+button:hover,
+input[type='button']:hover,
+input[type='submit']:hover,
+[role='button']:hover,
+summary:hover,
+label[for]:hover,
+[data-mobile-menu-toggle]:hover,
+[onclick]:hover,
+.cursor-pointer:hover,
+.fan-card:hover,
+.about-card:hover,
+canvas:hover,
+[id='carousel-track']:hover {
+    cursor: var(--pixel-cursor-pointer) !important;
 }
 
 #carousel-track,
@@ -362,8 +418,8 @@ body[data-theme='accessible'] {
     line-height: 1.65;
     background-color: #1234db !important;
     color: #ffffff !important;
-    --pixel-cursor-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M2 1L2 18L7 13L10 20L13 19L10 12L17 12Z' fill='white' stroke='%231234db' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 2 1, auto;
-    --pixel-cursor-pointer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M8 22h8v-2h2v-7c0-1.1-.9-2-2-2h-1V6.5c0-.83-.67-1.5-1.5-1.5S12 5.67 12 6.5V11h-1V4.5c0-.83-.67-1.5-1.5-1.5S8 3.67 8 4.5V14h-1V7.5C7 6.67 6.33 6 5.5 6S4 6.67 4 7.5v9.1c0 .4.16.78.44 1.06L8 22Z' fill='white' stroke='%231234db' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 7 2, pointer;
+    --pixel-cursor-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M2 1L2 18L7 13L10 20L13 19L10 12L17 12Z' fill='white' stroke='%2316a34a' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 2 1, auto;
+    --pixel-cursor-pointer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M8 22h8v-2h2v-7c0-1.1-.9-2-2-2h-1V6.5c0-.83-.67-1.5-1.5-1.5S12 5.67 12 6.5V11h-1V4.5c0-.83-.67-1.5-1.5-1.5S8 3.67 8 4.5V14h-1V7.5C7 6.67 6.33 6 5.5 6S4 6.67 4 7.5v9.1c0 .4.16.78.44 1.06L8 22Z' fill='white' stroke='%2316a34a' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 7 2, pointer;
 }
 
 body[data-theme='accessible'] .fixed-top-nav::before {
@@ -662,8 +718,82 @@ body[data-theme='accessible'] *::after {
 .media-frame video {
     display: block;
     width: 100%;
+    height: 100%;
     border: 0;
     border-radius: inherit;
+}
+
+.media-video-shell {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #e7e5e4;
+}
+
+.media-video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit;
+    background: transparent;
+}
+
+.media-video-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.06));
+    transition: opacity 0.28s ease;
+}
+
+.media-video-play-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: rgba(17, 24, 39, 0.55);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.42rem 0.72rem;
+    backdrop-filter: blur(2px);
+}
+
+.media-video-play-badge svg {
+    width: 0.9rem;
+    height: 0.9rem;
+}
+
+.media-video-shell:hover .media-video-overlay {
+    opacity: 0.84;
+}
+
+.media-video-shell.is-playing .media-video-overlay {
+    opacity: 0;
+}
+
+body[data-theme='accessible'] .media-video-play-badge {
+    background: rgba(18, 52, 219, 0.72);
+    border-color: rgba(255, 255, 255, 0.95);
+}
+
+.media-block {
+    margin: 0;
+}
+
+.media-caption {
+    margin-top: 0.55rem;
+    color: #57534e;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    font-weight: 600;
 }
 
 body[data-theme='accessible'] .media-frame {

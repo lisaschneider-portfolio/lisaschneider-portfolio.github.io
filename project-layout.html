@@ -84,7 +84,11 @@
 
             <!-- Metadata Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-y border-stone-200 py-6">
-                <div><p class="text-xs font-bold text-stone-400 uppercase">Role</p><p id="detail-role" class="font-bold text-sm"></p></div>
+                <div class="space-y-1">
+                    <p class="text-xs font-bold text-stone-400 uppercase">Role</p>
+                    <p id="detail-role" class="font-bold text-sm"></p>
+                    <p id="detail-collaboration" class="hidden text-xs font-semibold text-stone-500"></p>
+                </div>
                 <div><p class="text-xs font-bold text-stone-400 uppercase">Timeline</p><p id="detail-timeline" class="font-bold text-sm"></p></div>
                 <div><p class="text-xs font-bold text-stone-400 uppercase">Tools</p><p id="detail-tools" class="font-bold text-sm"></p></div>
                 <div><p class="text-xs font-bold text-stone-400 uppercase">Client</p><p id="detail-client" class="font-bold text-sm"></p></div>
@@ -125,14 +129,31 @@
             document.getElementById('project-image').src = project.heroImage || "";
             
             document.getElementById('detail-role').textContent = project.role || "";
+            const collaborationElement = document.getElementById('detail-collaboration');
+            if (project.collaboration) {
+                collaborationElement.textContent = project.collaboration;
+                collaborationElement.classList.remove('hidden');
+            } else {
+                collaborationElement.textContent = '';
+                collaborationElement.classList.add('hidden');
+            }
             document.getElementById('detail-timeline').textContent = project.timeline || "";
             document.getElementById('detail-tools').textContent = Array.isArray(project.tools) ? project.tools.join(', ') : project.tools;
             document.getElementById('detail-client').textContent = project.client || "";
 
             // Render Figma Button
             const cta = document.getElementById('cta-container');
+            cta.innerHTML = '';
             if (project.figmaUrl) {
-                cta.innerHTML = `<a href="${project.figmaUrl}" target="_blank" class="inline-flex items-center gap-2 bg-[#16a34a] text-white px-8 py-4 rounded-full font-bold hover:bg-[#166534] transition-colors shadow-[4px_4px_0_0_#1a1a1a]">View Figma Prototype</a>`;
+                const noteMarkup = project.figmaNote
+                    ? `<p class="project-note text-xs md:text-sm font-semibold text-stone-600">${project.figmaNote}</p>`
+                    : '';
+                cta.innerHTML = `
+                    <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
+                        <a href="${project.figmaUrl}" target="_blank" class="inline-flex items-center gap-2 bg-[#16a34a] text-white px-8 py-4 rounded-full font-bold hover:bg-[#166534] transition-colors shadow-[4px_4px_0_0_#1a1a1a]">View Figma Prototype</a>
+                        ${noteMarkup}
+                    </div>
+                `;
             }
 
             // Render Tags
@@ -143,11 +164,28 @@
             // Render Gallery
             const gallery = document.getElementById('process-gallery');
             if (project.processImages) {
-                gallery.innerHTML = project.processImages.map(img => 
-                    `<div class="media-frame shadow-[4px_4px_0_0_#e5e7eb]">
-                        <img src="${img}" class="w-full h-auto" alt="Process Image" />
-                    </div>`
-                ).join('');
+                gallery.innerHTML = project.processImages.map(item => {
+                    const media = typeof item === 'string'
+                        ? { src: item, caption: '', contextText: '' }
+                        : {
+                            src: item.src || item.image || '',
+                            caption: item.caption || '',
+                            contextText: item.contextText || ''
+                        };
+
+                    const captionHtml = media.caption || media.contextText
+                        ? `<p class="media-caption">${media.caption || media.contextText}</p>`
+                        : '';
+
+                    return `
+                        <figure class="media-block">
+                            <div class="media-frame shadow-[4px_4px_0_0_#e5e7eb]">
+                                <img src="${media.src}" class="w-full h-auto" alt="Process Image" />
+                            </div>
+                            ${captionHtml}
+                        </figure>
+                    `;
+                }).join('');
             }
 
             // SHOW the article

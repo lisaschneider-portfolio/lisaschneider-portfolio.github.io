@@ -3,79 +3,157 @@
      "title": "Welcome to the jungle",
     "subtitle": "An immersive installation that transforms a static canvas into a dynamic narrative window, encouraging viewers to connect with art beyond its context.",
     "role": "Creative Research & Designer",
-    "description": "The installation utilizes projection mapping on an existing canvas to animate a story, blending traditional art with digital narration. The project aims to combat the disconnect often felt in museums, where a lack of context can hinder visitor engagement. By bringing the painting to life through audio and movement, the installation invites viewers to use their imagination and actively participate in the artistic experience.",
+    "description": "A group of friends goes to a museum to see the famous paintings. None of the art has explanation signs, but that doesn't stop them. Soon, they find a painting of a jungle. As they stare at it and imagine what it means, the picture suddenly seems to come to life! They all get super excited and start sharing their own fun ideas about it. Feeling inspired, they move on to look at the next unknown painting, ready to use their imaginations again.",
     "challenge": "Visitors often find it difficult to appreciate museum art when there is no context or description provided, leading to a lack of connection with the piece. The primary challenge was to bridge this gap by creating an immersive experience that encourages viewers to engage with unfamiliar art, even when they lack background information on the artist or the painting’s history.",
     "timeline": "1 Month",
     "tools": "Mad Mapper, Photoshop, After Effects, Ableton Live",
-    "client": "Minor Audio & Visual Design",
+    "client": "Minor Audio & Visual Design, Hogeschool Utrecht",
     "imagePath": "assets/pictures/Window_into_a_world_1.png",
     "heroVideoPath": "assets/videos/Window_into_a_world_3.mp4",
+    "heroVideoPoster": "assets/pictures/Window_into_a_world_1.png",
     "videoPath": "",
     "processVideos": [
-      "assets/videos/Window_into_a_world_1.mp4",
-      "assets/videos/window_1.mp4"
+      {
+        "src": "assets/videos/Window_into_a_world_1.mp4",
+        "poster": "assets/pictures/Window_into_a_world_2.png",
+        "caption": "Process video showing the first motion test for the projection-mapped canvas."
+      },
+      {
+        "src": "assets/videos/window_1.mp4",
+        "poster": "assets/pictures/Window_into_a_world_1.png",
+        "caption": "Process video documenting the narrative movement and audio timing in the scene."
+      }
 
     ],
     "process": "My process began with digital research, drawing inspiration from projection mapping artists on Behance and TikTok. To animate the static image, I deconstructed the painting in Photoshop, creating distinct layers for elements like plants to ensure fluid movement. I experimented with narrative techniques, integrating ambient jungle sounds and constructing a physical museum scene around the canvas. Following feedback from a Mini-Expo that highlighted the need for a stronger, clearer storyline, I refined the project by developing a narrative centered on a group of friends visiting a museum, allowing the audience to follow their journey through the visuals and audio.",
     "processImages": [
-      "assets/pictures/Window_into_a_world_1.png",
-      "assets/pictures/Window_into_a_world_2.png"
+      {
+        "src": "assets/pictures/Window_into_a_world_1.png",
+        "caption": "Digital Copy of the physical painting"
+      },
+      {
+        "src": "assets/pictures/Window_into_a_world_2.png",
+        "contextText": "Deconstructed painting in Photoshop to create layers for animation"
+      }
     ],
     "tags": ["Projection Mapping", "Interaction Design", "Immersive Art Installation"],
 
-    "results": "The final installation successfully creates an immersive environment where the painted elements come to life, effectively captivating the audience and inspiring them to create their own interpretations of the art. By demonstrating that stories can be told through movement and audio in the absence of traditional descriptions, the project encourages museum-goers to continue exploring unfamiliar art with confidence." 
+    "results": "The final installation creates an immersive environment where the painted elements come to life, inviting the audience to form their own interpretations of the artwork. By showing that stories can be communicated through movement and audio in the absence of traditional descriptions, the project encourages museum-goers to continue exploring unfamiliar art with greater confidence." 
   },
   "sidequest-2": {
       "title": "Borderland Subversion",
     "subtitle": "An immersive art installation challenging perspectives on immigration and the manipulative nature of contextual information.",
     "role": "Creative Research, Concept Development and Design",
+    "collaboration": "Collaborative project",
     "description": "Borderland Subversion is an impactful art installation inspired by Carlos Barrias's photograph of Maria Hernandez’s immigration journey. The work explores the emotional separation of families and the systemic challenges faced by those seeking a better life. By using a symbolic curtain as a border wall and immersive light projections, the installation forces viewers to confront how selectively displayed information, and the idea that the grass is always greener on the other side, can manipulate our moral choices and assumptions about immigration.",
     "challenge": "The core challenge was to prompt viewers to reflect on their own biases regarding immigration while highlighting how information can be misleading when presented out of context. Inspired by the philosophical trolley problem, the goal was to avoid creating a good or bad side, instead forcing participants to grapple with the difficulty of resolving moral dilemmas. We aimed to move beyond static observation and create an environment where the audience’s own decision to engage with the other side revealed their internal reliance on manipulated narratives.",
-    "timeline": "3 Months",
+    "timeline": "3 months",
     "tools": "Photoshop, After Effects, MadMapper",
-    "client": "Minor Audio & Visual Design",
+    "client": "Minor Audio & Visual Design, Hogeschool Utrecht",
     "imagePath": "assets/pictures/borderland_subversion.jpeg",
     "heroVideoPath": "assets/videos/Borderland_subversion_4.mp4",
+    "heroVideoPoster": "assets/pictures/borderland_subversion.jpeg",
     "videoPath": "",
-    "process": "Our process was highly iterative, beginning with broad creative research using the 2023 World Press Photo contest as a foundation to identify themes of displacement and trauma. We moved from initial abstract concepts involving the trolley problem to a concrete, anchored narrative based on the real-life journey of Maria Hernandez. Throughout the seven-week project, we developed five distinct prototypes; each stage involved significant physical and digital testing, such as simulating the exhibition space with scale models and exploring spatial layouts using curtains and projectors. We learned to adapt our vision to physical constraints, such as shifting from a door-based concept to a curtain-gap design, and we utilized MadMapper to project animated paths that guided visitors through the space. We also made the intentional choice to exclude audio, concluding after testing that the visual and textual elements were powerful enough on their own and that sound would have been a distracting, unnecessary addition.",
+    "process": "Our process was highly iterative, beginning with broad creative research using the 2023 World Press Photo contest as a foundation to identify themes of displacement and trauma. We moved from initial abstract concepts involving the trolley problem to a concrete, anchored narrative based on the real-life journey of Maria Hernandez. Throughout the project, we developed five distinct prototypes; each stage involved significant physical and digital testing, such as simulating the exhibition space with scale models and exploring spatial layouts using curtains and projectors. We learned to adapt our vision to physical constraints, such as shifting from a door-based concept to a curtain-gap design, and we utilized MadMapper to project animated paths that guided visitors through the space. We also made the intentional choice to exclude audio, concluding after testing that the visual and textual elements were powerful enough on their own and that sound would have been a distracting, unnecessary addition.",
     "processImages": [
-      "assets/pictures/Borderland_subversion_6.png",
-      "assets/pictures/Borderland_subversion_7.png"
+      {
+        "src": "assets/pictures/Borderland_subversion_6.png",
+        "caption": "First prototype testing the adapted trolley problem concept"
+      },
+      {
+        "src": "assets/pictures/Borderland_subversion_7.png",
+        "contextText": ""
+      }
     ],
     "processVideos": [
-      "assets/videos/Borderland_subversion_8.mp4",
-      "assets/videos/Borderland_subversion_7.mp4",
-      "assets/videos/Borderland_subversion_5.mp4",
-      "assets/videos/Borderland_subversion_6.mp4"
+      {
+        "src": "assets/videos/Borderland_subversion_8.mp4",
+        "poster": "assets/pictures/Borderland_subversion_6.png"
+      },
+      {
+        "src": "assets/videos/Borderland_subversion_7.mp4",
+        "poster": "assets/pictures/Borderland_subversion_7.png"
+      },
+      {
+        "src": "assets/videos/Borderland_subversion_5.mp4",
+        "poster": "assets/pictures/Borderland_subversion_5.jpg",
+        "caption": "Assets of the final installation, including the curtain gap and projected animated paths."
+      },
+      {
+        "src": "assets/videos/Borderland_subversion_6.mp4",
+        "poster": "assets/pictures/Borderland_subversion_4.png"
+      }
 
     ],
     "processImages1": [
-      "assets/pictures/Borderland_subversion_5.jpg",
-      "assets/pictures/Borderland_subversion_4.png"
+      {
+        "src": "assets/pictures/Borderland_subversion_5.jpg",
+        "caption": "Scale model 1:10 for the exhibiton space"
+      },
+      {
+        "src": "assets/pictures/Borderland_subversion_4.png",
+        "contextText": "Final installation"
+      }
     ],
 
-    "results": "The final installation successfully realized our vision of a two-sided, immersive experience that uses contrasting colors, orange and blue, to represent two worlds without imposing moral judgment. By guiding visitors through a curtain gap using animated zipper and stripe effects, the installation compelled them to physically move between perspectives, mirroring the difficult choices faced by migrants. Feedback from the final exhibition indicated that the concept was clear and effective, confirming that the simplicity of the design was one of its greatest strengths. The project achieved its primary goal: prompting visitors to contemplate how easily their choices are influenced by context and leaving them with a deeper, more critical understanding of the complex, systemic, and emotional realities of emigration.", 
+    "results": "The final installation realized a two-sided immersive experience that uses contrasting colors, orange and blue, to represent two worlds without imposing moral judgment. By guiding visitors through a curtain gap using animated zipper and stripe effects, the installation prompted them to physically move between perspectives, mirroring the difficult choices faced by migrants. Feedback from the final exhibition indicated that the concept was clear and effective, with the simplicity of the design cited as a key strength. The project met its primary goal by encouraging visitors to examine how context shapes decisions and to leave with a more critical understanding of the complex, systemic, and emotional realities of emigration.", 
     "tags": ["Projection Mapping", "Immersive Art Installation", "Interaction Design"]
   },
-   "sidequest-3": {
+  "sidequest-3": {
       "title": "Techno Albert Heijn",
-    "subtitle": "An audio piece that mixes the everyday sounds of an Albert Heijn grocery store with the atmosphere of a techno club.",
+    "subtitle": "A sound landscape is a short audio piece where you construct a new audio fragment using existing individual sounds, self-recorded sounds, and music. I accomplished this by making decisions about the timing and applied effects on all the fragments. Here is the end result that you can listen to.",
     "audioUrl": "assets/videos/Soundscape.mp3",
     "role": "Creative Director & Designer",
-    "description": "This project turns boring grocery shopping into an club experience. By combining sounds like checkout beeps and rattling carts with deep, thumping techno beats, I created a unique soundscape that shows how ordinary places can sound extraordinary.",
+    "description": "An immersive audio-visual exploration mapping the everyday auditory environment of a supermarket into an electronic soundscape. By taking mundane, routine sounds-such as register beeps, fridge hums, and rustling packaging-the project reconstructs them into a rhythmic narrative. A soundscape is an acoustic environment or combination of sounds that forms an immersive audio atmosphere, transforming passive ambient noise into an active storytelling medium.",
     "challenge": "The main challenge was mixing two very different worlds without making the audio sound messy. In my first draft, the techno beats were too loud, which made the grocery store sounds hard to hear and caused the different layers to clash with each other.",
     "timeline": "1 Month",
     "tools": "Ableton Live",
-    "client": "Minor Audio & Visual Design",
+    "client": "Minor Audio & Visual Design, Hogeschool Utrecht",
     "imagePath": "assets/pictures/soundscape_techno_ah.webp",
     "videoPath": "",
-    "process": "I started by gathering sounds from a grocery store, a club, and online libraries. I also used AI to create realistic voices to tell the story. I used Ableton Live to put it all together, originally planning a store walkthrough before changing the story to focus on the experience of shopping and paying. After getting feedback, I used a technique called sidechaining to fix the mix. This helped the background sounds sit better in the music and made the whole piece feel much smoother.",
+    "process": "To begin, I brainstormed all possible sounds present in a grocery store in particular Albert Heijn, categorizing them into groups such as those associated with the physical environment, sounds generated by humans or devices, and ambient sounds. I followed the same procedure for the sounds found in a techno club. The subsequent step involved planning the beginning, middle, and end points of the sound journey. I conceived the idea of conducting a walkthrough with sounds through an Albert Heijn store because the layout of every store follows a similar concept: fresh products like fruits and veggies come first, followed by the refrigerator section and bakery items. It then transitions to the aisle sections for dry products, followed by the drinks and freezers towards the end, ending at the cashier. At the end I changed this idea a little bit and mixed the grocery errands with an activity which is very known for the techno scene. Due experimenting with the audio the idea with the walkthrough I turned the concept into entering the club/ah store, looking for the goods and experiencing the goods/being at the cashier checkout.",
     "figmaUrl": "https://techno-albert-heijn.figma.site",
     "processImages": [
-      "assets/pictures/soundscape.JPG"
+      {
+        "src": "assets/pictures/soundscape.JPG",
+        "caption": "Ableton Live snapshot showing layered supermarket and techno sounds, with applied effects and automation."
+      }
 
     ],
-    "results": "The final result is an immersive audio piece that successfully turns a shopping trip into an underground party. I learned a lot about audio tools like auto-filters and sidechaining to change how sounds feel. This project taught me how to tell a story and create specific moods just by using sound.", 
+    "results": "The final result is an immersive audio piece that reframes a shopping trip as an electronic listening experience. The project expanded my use of production techniques such as auto-filters and sidechaining to shape texture, pacing, and clarity. It also strengthened my ability to build narrative and mood through sound design alone.", 
     "tags": ["Audio Design"]
+  },
+  "sidequest-4": {
+    "title": "IKEA Kvartett",
+    "subtitle": "Transforming IKEA shopping into a collectible card game that encourages discovery and connection.",
+    "role": "UX Designer",
+    "description": "Working directly within logistics at IKEA Utrecht provided a clear look at how operational workflows intersect with digital tools. This project bridges physical efficiency with intuitive interface design-stripping away generic language to focus on practical, friction-free interfaces that help team members navigate complex warehouse and inventory tasks smoothly.",
+    "challenge": "I wanted to investigate how gamification could be applied outside of digital products to enhance physical retail experiences. IKEA customers often visit with a specific shopping list, causing them to overlook much of the store's extensive product range. The challenge became: How might we use game mechanics to encourage customers to explore more products while making the shopping experience more engaging and memorable?",
+    "timeline": "1 Week",
+    "tools": "Illustrator, InDesign",
+    "client": "Self-Initiated",
+    "imagePath": "assets/pictures/Kvartett_ikea.jpg",
+    "videoPath": "",
+    "process": "Starting from my own interest in gamification and behavioral design, I analyzed the IKEA shopping experience and identified opportunities to encourage exploration through play. I designed a collectible card system that translated IKEA products into game elements, defining categories, attributes, rarity levels, and visual hierarchies. Through several iterations, I refined the balance between gameplay and product information, ensuring the concept remained recognizably IKEA while introducing meaningful game mechanics such as themed collections, favorites, and collectible sets.",
+    "processImages": [
+      {
+        "src": "assets/pictures/Kvartett_ikea_1.jpg",
+        "caption": "Card system draft translating product data into a playable set."
+      },
+      {
+        "src": "assets/pictures/Kvartett_ikea_2.jpg",
+        "contextText": "Iteration focused on hierarchy, readability, and fast comparison between cards."
+      },
+      {
+        "src": "assets/pictures/Kvartett_ikea_3.jpg",
+        "caption": "Set-building concept encouraging broader product discovery across the store."
+      },
+      {
+        "src": "assets/pictures/Kvartett_ikea_4.jpg",
+        "contextText": "Final concept balancing playful interaction with practical product information."
+      }
+    ],
+    "results": "This self-initiated project demonstrates how gamification can transform a routine shopping trip into a more engaging and memorable experience. By combining familiar IKEA product information with collectible mechanics, the concept encourages customers to discover products they might otherwise overlook while reinforcing brand interaction. Beyond the final design, the project allowed me to explore behavioral design, information architecture, and interaction design in a playful retail context, showcasing my ability to independently identify opportunities and translate them into user-centered concepts.",
+    "tags": ["Product Design", "Service Design", "Gamification"]
   }
 }

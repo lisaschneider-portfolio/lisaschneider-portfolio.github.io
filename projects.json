@@ -3,21 +3,38 @@
     "title": "Wie Gaat Eerst? (Who goes first?)",
     "subtitle": "A triage simulation that helps nursing students make faster prioritization decisions under pressure.",
     "figmaUrl": "https://wie-gaat-eerst.figma.site",
-    "role": "Researcher & Designer",
+    "figmaNote": "Note: Interactive prototype supports desktop/iPad displays only (mobile version not supported).",
+    "role": "Creative Research, Concept Development and Design",
+    "collaboration": "Collaborative project",
     "timeline": "10 Weeks",
     "tools": ["Illustrator", "Figma", "Miro"],
     "client": "OLVG Hospital x HvA",
-    "description": "Emergency departments are high-pressure environments where novice nurses often struggle with prioritization and decision-making. Through stakeholder interviews and field research, we discovered that false alarms were not the root problem-they were a symptom of cognitive overload. To address this, we designed a simulation-based learning tool that allows nursing students to practice triage decisions in realistic scenarios before entering the workplace.",
-    "challenge": "Our project initially focused on reducing false alarms in Accident & Emergency departments. However, interviews with healthcare professionals revealed a deeper issue: nursing students often enter clinical environments without the experience-based mental models needed to confidently prioritize patients. How might we help nursing students develop decision-making confidence before entering high-pressure clinical settings?",
-    "process": "We conducted interviews with healthcare professionals and analyzed the causes of stress and decision fatigue in emergency care environments. Using insights from cognitive load theory, we reframed the problem from 'reducing false alarms' to 'building resilience through practice.' We then designed a digital triage simulation that progressively exposes students to realistic emergency scenarios, helping them build pattern recognition and prioritization skills through repetition and feedback.",
-    "results": "This project demonstrated the value of addressing the root causes of cognitive overload rather than its symptoms. By reframing the challenge from reducing false alarms to strengthening decision-making resilience, we created a simulation-based learning experience that helps nursing students develop the mental models required for effective patient prioritization. The concept was positively received by both students and healthcare professionals, highlighting the potential of preventative training interventions in preparing future nurses for the realities of emergency care.",
+    "description": "Emergency departments are high-pressure environments where nurses often struggle with prioritization and decision-making. Through stakeholder interviews and field research, we discovered that false alarms were not the root problem-they were a symptom of cognitive overload. To address this, we designed a simulation-based learning tool that allows nursing students to practice triage decisions in realistic scenarios before entering the workplace.",
+    "challenge": "Our project initially focused on reducing false alarms in Accident & Emergency departments. Interviews with healthcare professionals revealed a deeper issue: nursing students often enter clinical environments without the experience-based mental models needed to confidently prioritize patients. The design question became: How might we help nursing students build decision-making confidence before entering high-pressure clinical settings?",
+    "process": "We researched the emergency department at OLVG through observations and interviews, finding that the chaotic environment (not just alarms) caused nurses to feel overwhelmed. Using Cognitive Load Theory, we shifted our focus from fixing alarms to helping nurses before they enter the A&E, helping them in edcuation to build strong decision-making habits. Inspired by flight and military simulators, we created a safe-to-fail digital game. While we started with physical card ideas, testing led us to build an iPad-friendly browser simulation in Figma Make. The tool uses realistic patient cards with live vitals and ambient sounds, giving students instant clinical feedback so they can build confidence through repeated practice.",
+    "results": "This project demonstrated the value of addressing the root causes of cognitive overload rather than its symptoms. By reframing the challenge from reducing false alarms to strengthening decision-making resilience, we created a simulation-based learning experience that helps nursing students develop the mental models required for effective patient prioritization. The concept was positively received by healthcare professionals, highlighting the potential of preventative training interventions in preparing future nurses for the realities of emergency care.",
     "heroImage": "assets/pictures/WGE_Mockup.jpg",
     "processImages": [
-      "assets/pictures/WGE_Level.png",
-      "assets/pictures/WGE_Instructions_1.png",
-      "assets/pictures/WGE_Instructions_2.png",
-      "assets/pictures/WGE_game_screen.png",
-      "assets/pictures/WGE_Feedback_screen.png"
+      {
+        "src": "assets/pictures/WGE_Level.png",
+        "caption": "Level structure designed to gradually increase cognitive load and decision-making complexity."
+      },
+      {
+        "src": "assets/pictures/WGE_Instructions_1.png",
+        "contextText": "Instruction flow outlining the navigation and triage process for the simulation."
+      },
+      {
+        "src": "assets/pictures/WGE_Instructions_2.png",
+        "contextText": "Second instruction state clarifying urgency categories."
+      },
+      {
+        "src": "assets/pictures/WGE_game_screen.png",
+        "caption": "Core gameplay screen used in prototype testing."
+      },
+      {
+        "src": "assets/pictures/WGE_Feedback_screen.png",
+        "caption": "Feedback screen reinforcing prioritization decisions after each round."
+      }
     ],
     "tags": ["UX Research", "HealthTech", "Service Design", "Gamification"]
   },
@@ -28,16 +45,29 @@
     "timeline": "6 Months",
     "tools": ["Figma", "Canva", "Atlas.ti", "InDesign"],
     "client": "Vistar Media x Hogeschool Utrecht",
-    "description": "Dynamic Creative Optimization (DCO) has the potential to make digital out-of-home advertising more relevant, responsive, and effective. However, research revealed that many marketers perceived DCO as overly technical, complex, and difficult to adopt. Working with Vistar Media, I designed an omnichannel communication strategy that transformed DCO from a technical product into a creatively empowering tool. By connecting LinkedIn, Digital Out-of-Home screens, and Instagram Broadcast Channels into a cohesive customer journey, the solution guided marketers from initial awareness to deeper engagement through authentic, value-driven touchpoints.",
+    "description": "A digital campaign concept designed around Dynamic Creative Optimization (DCO). DCO is a display advertising technology that automatically swaps out visual and copy elements-such as images, headlines, and call-to-actions-in real time based on audience data, location, and context, delivering personalized ad variations at scale.",
     "challenge": "Vistar Media wanted to increase adoption of Dynamic Creative Optimization in programmatic Digital Out-of-Home advertising. Initial research revealed that low adoption was not caused by a lack of technology, but by a communication gap. Marketers struggled to understand the creative value of DCO and were often overwhelmed by technical messaging. This reframed the challenge from promoting a product to changing perceptions: How might we make Dynamic Creative Optimization feel creatively empowering rather than technically intimidating?",
     "process": "Through stakeholder interviews, competitor analysis, audience research, journey mapping, and multiple rounds of prototype testing, I explored how marketers discover, evaluate, and adopt emerging advertising technologies. Early concepts focused heavily on technology and features, but testing revealed a preference for authentic, human-centered content. These insights led to an omnichannel strategy that leveraged LinkedIn for trust-building, DOOH for awareness, and Instagram Broadcast Channels for deeper engagement. The strategy was iteratively refined through feedback from both target users and industry experts.",
     "results": "Testing validated the overall strategy and confirmed that marketers respond more positively to authentic, educational content than traditional sales-driven messaging. LinkedIn emerged as the most influential channel for B2B decision-making, while Instagram Broadcast Channels were perceived as an innovative way to build ongoing engagement when paired with exclusive, high-value content. The final solution delivered a feasible six-month implementation roadmap, a complete omnichannel communication strategy, and an operational playbook that enabled Vistar Media to position itself as a creative-first leader in Dynamic Creative Optimization.",
     "heroImage": "assets/pictures/Vistar_Media_mockup.jpg",
     "processImages": [ 
-      "assets/pictures/Vistar_media_1.jpg",
-      "assets/pictures/Vistar_Media_2.jpg",
-      "assets/pictures/Vistar_Media_3.jpg",
-      "assets/pictures/Vistar_Media_4.jpg"],
+      {
+        "src": "assets/pictures/Vistar_media_1.jpg",
+        "caption": ""
+      },
+      {
+        "src": "assets/pictures/Vistar_Media_2.jpg",
+        "contextText": ""
+      },
+      {
+        "src": "assets/pictures/Vistar_Media_3.jpg",
+        "caption": ""
+      },
+      {
+        "src": "assets/pictures/Vistar_Media_4.jpg",
+        "contextText": ""
+      }
+    ],
     "tags": ["UX Research", "B2B Marketing", "Strategic Design", "Graduation Thesis"]
   },
   "GezelligGo": {
@@ -47,33 +77,22 @@
     "timeline": "1 Month",
     "tools": ["Figma", "Visual Studio Code"],
     "client": "Self-Initiated",
+    "status": "In Progress",
     "description": "GezelligGo is a community-driven platform designed to bridge the gap between academic language instruction and real-life communication. It transforms Dutch lessons into actionable, daily missions that nudge learners out of their comfort zones. By partnering with local businesses and fostering social connections, it guides users on a collaborative journey toward real-world confidence and integration, rather than just academic achievement.",
     "challenge": "As a Dutch language learner, I observed a significant friction between classroom instruction-which is often academic, fictional, and detached-and the reality of daily communication. This gap kills motivation. Even when physical workbooks offer real-life exercises, they are rarely used because they feel like an administrative burden, preventing learners from gaining the confidence needed to speak Dutch in daily life.",
     "process": "My design process began with nine months of immersion as a Dutch language student, which allowed me to personally experience the pain points I aimed to solve. I conducted a survey to understand user habits and engaged in stakeholder interviews with teachers, students, and school administrators to define the platform's core requirements. I adopted an agile, experimental approach, bypassing standard no-code builders to vibe code directly in Visual Studio. This allowed me to rapidly test functional prototypes and explore different UI variations in a real-world environment, though the process taught me the importance of finalizing design layouts before prompting AI to ensure code consistency.",
-    "results": "The project resulted in a functional, interactive prototype that effectively transitions users from the classroom to the community. The platform features real-world language missions, phonetic guides, and buddy challenges that remove the anxiety of practicing Dutch alone. By integrating a dual-card interface that spotlights local blog posts and community events, GezelligGo successfully acts as a digital bridge, transforming everyday interactions into valuable, low-pressure practice opportunities that build long-term confidence.",
+    "results": "The project resulted in a functional, interactive prototype that transitions users from the classroom to the community. The platform features real-world language missions, phonetic guides, and buddy challenges that remove the anxiety of practicing Dutch alone. By integrating a dual-card interface that spotlights local blog posts and community events, GezelligGo acts as a digital bridge, transforming everyday interactions into valuable, low-pressure practice opportunities that build long-term confidence.",
     "heroImage": "assets/pictures/Gezelliggo_mockup.jpg",
     "processImages": [  
-      "assets/pictures/gezelliggo_1.jpg",
-      "assets/pictures/Gezelliggo_2.jpg"],
-    "tags": ["UX/UI Research","Strategic Design"]  },
-  "ikea-kvartett": {
-    "title": "IKEA Kvartett",
-    "subtitle": "Transforming IKEA shopping into a collectible card game that encourages discovery and connection.",
-    "role": "UX Designer",
-    "description": "Kvartett IKEA reimagines the traditional shopping experience by turning IKEA's product assortment into a collectible card game. Inspired by classic quartet card games, each product becomes a collectible card with attributes such as price, weight, category, and rarity. Rather than simply browsing products, customers are encouraged to discover, compare, and collect items, making product exploration playful while increasing engagement with IKEA's catalog.",
-    "challenge": "I wanted to investigate how gamification could be applied outside of digital products to enhance physical retail experiences. IKEA customers often visit with a specific shopping list, causing them to overlook much of the store's extensive product range. The challenge became: How might we use game mechanics to encourage customers to explore more products while making the shopping experience more engaging and memorable?",
-    "timeline": "2 Weeks",
-    "tools": ["Illustrator", "InDesign"],
-    "client": "Self-Initiated",
-    "heroImage": "assets/pictures/Kvartett_ikea.jpg",
-    "process": "Starting from my own interest in gamification and behavioral design, I analyzed the IKEA shopping experience and identified opportunities to encourage exploration through play. I designed a collectible card system that translated IKEA products into game elements, defining categories, attributes, rarity levels, and visual hierarchies. Through several iterations, I refined the balance between gameplay and product information, ensuring the concept remained recognizably IKEA while introducing meaningful game mechanics such as themed collections, favorites, and collectible sets.",
-    "results": "This self-initiated project demonstrates how gamification can transform a routine shopping trip into a more engaging and memorable experience. By combining familiar IKEA product information with collectible mechanics, the concept encourages customers to discover products they might otherwise overlook while reinforcing brand interaction. Beyond the final design, the project allowed me to explore behavioral design, information architecture, and interaction design in a playful retail context, showcasing my ability to independently identify opportunities and translate them into user-centered concepts.",
-    "processImages": [
-      "assets/pictures/Kvartett_ikea_1.jpg", 
-      "assets/pictures/Kvartett_ikea_2.jpg",
-      "assets/pictures/Kvartett_ikea_3.jpg",
-      "assets/pictures/Kvartett_ikea_4.jpg"
+      {
+        "src": "assets/pictures/gezelliggo_1.jpg",
+        "caption": "Mission flow prototype translating lessons into daily actions."
+      },
+      {
+        "src": "assets/pictures/Gezelliggo_2.jpg",
+        "contextText": "Community card pattern linking learners to local opportunities."
+      }
     ],
-    "tags": ["Product Design", "Service Design", "Gamification"]
+    "tags": ["UX/UI Research","Strategic Design"]
   }
 }

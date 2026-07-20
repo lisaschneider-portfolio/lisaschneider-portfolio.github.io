@@ -104,10 +104,18 @@
                 </div>
 
                 <div id="hero-video-block" class="hidden">
-                    <video id="hero-video" controls playsinline class="media-frame w-full h-auto bg-black" preload="metadata">
+                    <div class="media-video-shell media-frame">
+                        <video id="hero-video" controls playsinline class="media-video-player" preload="metadata" poster="">
                         <source id="hero-video-source" src="" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
+                        <div class="media-video-overlay" aria-hidden="true">
+                            <span class="media-video-play-badge">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 001.52.86l10.87-6.86a1 1 0 000-1.72L9.52 4.28A1 1 0 008 5.14z"/></svg>
+                                <span>Play video</span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="grid gap-10">
@@ -126,6 +134,7 @@
                         <div class="space-y-1">
                             <p class="text-xs font-extrabold text-stone-400 uppercase tracking-wide">Role</p>
                             <p id="detail-role" class="font-bold text-sm">Lead Designer</p>
+                            <p id="detail-collaboration" class="hidden text-xs font-semibold text-stone-500"></p>
                         </div>
                         <div class="space-y-1">
                             <p class="text-xs font-extrabold text-stone-400 uppercase tracking-wide">Timeline</p>
@@ -161,7 +170,6 @@
 
             <div class="flex justify-between items-center pt-8 border-t-2 border-stone-200">
                 <a href="sidequests.html" class="text-stone-500 hover:text-stone-800 text-xs font-extrabold uppercase tracking-wider transition-colors">← All Side Quests</a>
-                <div class="text-xs font-extrabold uppercase tracking-wider text-stone-400">Side Quest detail</div>
             </div>
         </article>
     </main>
@@ -184,6 +192,7 @@
         const titleElement = document.getElementById('project-title');
         const subtitleElement = document.getElementById('project-subtitle');
         const roleElement = document.getElementById('detail-role');
+        const collaborationElement = document.getElementById('detail-collaboration');
         const timelineElement = document.getElementById('detail-timeline');
         const toolsElement = document.getElementById('detail-tools');
         const clientElement = document.getElementById('detail-client');
@@ -202,6 +211,39 @@
         const heroVideoSource = document.getElementById('hero-video-source');
         const audioButtonContainer = document.getElementById('audio-button-container');
 
+        function getPreviewVideoSrc(src) {
+            if (!src) return '';
+            if (src.includes('#t=')) return src;
+            return `${src}#t=0.1`;
+        }
+
+        function normalizeVideoItem(item, fallbackPoster = '') {
+            if (typeof item === 'string') {
+                return { src: item, poster: fallbackPoster || '', caption: '', contextText: '' };
+            }
+            return {
+                src: item?.src || item?.video || item?.url || '',
+                poster: item?.poster || item?.thumbnail || fallbackPoster || '',
+                caption: item?.caption || '',
+                contextText: item?.contextText || ''
+            };
+        }
+
+        function bindVideoPreviewState(videoElement) {
+            const shell = videoElement.closest('.media-video-shell');
+            if (!shell) return;
+
+            const sync = () => shell.classList.toggle('is-playing', !videoElement.paused && !videoElement.ended);
+            ['play', 'playing', 'pause', 'ended', 'seeking'].forEach(evt => {
+                videoElement.addEventListener(evt, sync);
+            });
+            sync();
+        }
+
+        function bindAllVideoPreviewStates() {
+            document.querySelectorAll('.media-video-shell video').forEach(bindVideoPreviewState);
+        }
+
         function normalizeProjects(data) {
             if (Array.isArray(data)) {
                 return data.map(project => ({ id: project.id || '', ...project }));
@@ -218,6 +260,13 @@
             titleElement.textContent = project.title || 'Side Quest Title';
             subtitleElement.textContent = project.subtitle || '';
             roleElement.textContent = project.role || 'Lead Designer';
+            if (project.collaboration) {
+                collaborationElement.textContent = project.collaboration;
+                collaborationElement.classList.remove('hidden');
+            } else {
+                collaborationElement.textContent = '';
+                collaborationElement.classList.add('hidden');
+            }
             timelineElement.textContent = project.timeline || '3 Months';
             toolsElement.textContent = project.tools || 'Figma, Illustrator';
             clientElement.textContent = project.client || 'Self-initiated';
@@ -254,12 +303,16 @@
             }
 
             const heroVideoSrc = project.heroVideoPath || '';
+            const heroVideoPoster = project.heroVideoPoster || heroImageSrc || '';
             if (heroVideoSrc) {
-                heroVideoSource.src = heroVideoSrc;
+                heroVideoSource.src = getPreviewVideoSrc(heroVideoSrc);
+                heroVideo.poster = heroVideoPoster;
                 heroVideo.load();
                 heroVideoBlock.classList.remove('hidden');
+                bindVideoPreviewState(heroVideo);
             } else {
                 heroVideoSource.src = '';
+                heroVideo.poster = '';
                 heroVideoBlock.classList.add('hidden');
             }
 
@@ -271,11 +324,25 @@
 
             processGallery.innerHTML = '';
             if (project.processImages && project.processImages.length) {
-                project.processImages.forEach(imgUrl => {
+                project.processImages.forEach(item => {
+                    const media = typeof item === 'string'
+                        ? { src: item, caption: '', contextText: '' }
+                        : {
+                            src: item.src || item.image || '',
+                            caption: item.caption || '',
+                            contextText: item.contextText || ''
+                        };
+                    const captionHtml = media.caption || media.contextText
+                        ? `<p class="media-caption">${media.caption || media.contextText}</p>`
+                        : '';
+
                     processGallery.innerHTML += `
-                        <div class="media-frame">
-                            <img src="${imgUrl}" class="w-full h-auto" alt="Process image" />
-                        </div>
+                        <figure class="media-block">
+                            <div class="media-frame">
+                                <img src="${media.src}" class="w-full h-auto" alt="Process image" />
+                            </div>
+                            ${captionHtml}
+                        </figure>
                     `;
                 });
             } else {
@@ -293,15 +360,32 @@
             }
 
             if (processVideos.length) {
-                processVideos.forEach(videoUrl => {
+                processVideos.forEach(item => {
+                    const video = normalizeVideoItem(item, project.processVideoPoster || project.imagePath || project.heroImage || '');
+                    const videoSrc = getPreviewVideoSrc(video.src);
+                    const captionHtml = video.caption || video.contextText
+                        ? `<p class="media-caption">${video.caption || video.contextText}</p>`
+                        : '';
                     processVideoGallery.innerHTML += `
-                        <video controls playsinline class="media-frame w-full h-auto bg-black" preload="metadata">
-                            <source src="${videoUrl}" type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
+                        <figure class="media-block">
+                            <div class="media-video-shell media-frame">
+                                <video controls playsinline class="media-video-player" preload="metadata" poster="${video.poster}">
+                                    <source src="${videoSrc}" type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="media-video-overlay" aria-hidden="true">
+                                    <span class="media-video-play-badge">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 001.52.86l10.87-6.86a1 1 0 000-1.72L9.52 4.28A1 1 0 008 5.14z"/></svg>
+                                        <span>Play video</span>
+                                    </span>
+                                </div>
+                            </div>
+                            ${captionHtml}
+                        </figure>
                     `;
                 });
                 processVideoGallery.classList.remove('hidden');
+                bindAllVideoPreviewStates();
             } else {
                 processVideoGallery.classList.add('hidden');
             }
@@ -309,11 +393,25 @@
             processGalleryAfterVideos.innerHTML = '';
             const trailingProcessImages = (project.processImages1 || []).filter(Boolean);
             if (trailingProcessImages.length) {
-                trailingProcessImages.forEach(imgUrl => {
+                trailingProcessImages.forEach(item => {
+                    const media = typeof item === 'string'
+                        ? { src: item, caption: '', contextText: '' }
+                        : {
+                            src: item.src || item.image || '',
+                            caption: item.caption || '',
+                            contextText: item.contextText || ''
+                        };
+                    const captionHtml = media.caption || media.contextText
+                        ? `<p class="media-caption">${media.caption || media.contextText}</p>`
+                        : '';
+
                     processGalleryAfterVideos.innerHTML += `
-                        <div class="media-frame">
-                            <img src="${imgUrl}" class="w-full h-auto" alt="Additional process image" />
-                        </div>
+                        <figure class="media-block">
+                            <div class="media-frame">
+                                <img src="${media.src}" class="w-full h-auto" alt="Additional process image" />
+                            </div>
+                            ${captionHtml}
+                        </figure>
                     `;
                 });
                 processGalleryAfterVideos.classList.remove('hidden');

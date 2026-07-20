@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="min-h-screen relative overflow-x-hidden">
+<body class="min-h-screen relative overflow-x-hidden" data-page="home">
     <div class="a11y-toggle-wrap hidden md:block">
         <div class="a11y-toggle-stack">
             <div class="a11y-toggle-row">
@@ -231,7 +231,7 @@
             actionButton.innerText = `view ${data.title}`;
         }
 
-        let lastArrowPointerUpAt = 0;
+        let lastArrowPointerActionAt = 0;
 
         function goToPreviousCard() {
             if (!totalCards) return;
@@ -277,16 +277,17 @@
         }
 
         function bindArrowControl(button, handler) {
-            button.addEventListener('pointerup', event => {
-                // Some touch devices occasionally drop click; pointerup keeps navigation responsive.
-                lastArrowPointerUpAt = Date.now();
+            button.addEventListener('pointerdown', event => {
+                // React on press instead of release so arrow navigation feels immediate.
+                if (event.button !== undefined && event.button !== 0) return;
+                lastArrowPointerActionAt = Date.now();
                 event.preventDefault();
                 handler();
             });
 
             button.addEventListener('click', () => {
-                // Ignore synthetic click fired right after pointerup on touch input.
-                if (Date.now() - lastArrowPointerUpAt < 350) return;
+                // Ignore synthetic click fired right after pointer interaction.
+                if (Date.now() - lastArrowPointerActionAt < 400) return;
                 handler();
             });
         }
@@ -295,15 +296,18 @@
         bindArrowControl(nextButton, goToNextCard);
 
         Promise.all([
-            fetch('projects.json').then(res => res.json())
+            fetch('projects.json').then(res => res.json()),
+            fetch('sidequests.json').then(res => res.json())
         ])
-            .then(([projectsData]) => {
+            .then(([projectsData, sidequestsData]) => {
                 const allProjects = normalizeCollection(projectsData).map(item => ({ ...item, kind: 'project' }));
+                const allSidequests = normalizeCollection(sidequestsData).map(item => ({ ...item, kind: 'sidequest' }));
 
-                const allowedProjects = ['vistar-media', 'wie-gaat-eerst', 'ikea-kvartett'];
+                const allowedProjects = ['vistar-media', 'wie-gaat-eerst'];
                 const featuredProjects = allProjects.filter(item => allowedProjects.includes(item.id));
+                const ikeaSidequest = allSidequests.find(item => item.id === 'sidequest-4');
 
-                createProjectCards(featuredProjects);
+                createProjectCards(ikeaSidequest ? [...featuredProjects, ikeaSidequest] : featuredProjects);
                 updateMetadata(0);
                 layoutCarousel(0);
             });
