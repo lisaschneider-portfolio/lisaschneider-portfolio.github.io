@@ -11,8 +11,13 @@
     "client": "OLVG Hospital x HvA",
     "description": "Emergency departments are high-pressure environments where nurses often struggle with prioritization and decision-making. Through stakeholder interviews and field research, we discovered that false alarms were not the root problem-they were a symptom of cognitive overload. To address this, we designed a simulation-based learning tool that allows nursing students to practice triage decisions in realistic scenarios before entering the workplace.",
     "challenge": "Our project initially focused on reducing false alarms in Accident & Emergency departments. Interviews with healthcare professionals revealed a deeper issue: nursing students often enter clinical environments without the experience-based mental models needed to confidently prioritize patients. The design question became: How might we help nursing students build decision-making confidence before entering high-pressure clinical settings?",
-    "process": "We researched the emergency department at OLVG through observations and interviews, finding that the chaotic environment (not just alarms) caused nurses to feel overwhelmed. Using Cognitive Load Theory, we shifted our focus from fixing alarms to helping nurses before they enter the A&E, helping them in edcuation to build strong decision-making habits. Inspired by flight and military simulators, we created a safe-to-fail digital game. While we started with physical card ideas, testing led us to build an iPad-friendly browser simulation in Figma Make. The tool uses realistic patient cards with live vitals and ambient sounds, giving students instant clinical feedback so they can build confidence through repeated practice.",
+    "process": "We researched the emergency department at OLVG through observations and interviews, finding that the chaotic environment (not just alarms) caused nurses to feel overwhelmed. Using Cognitive Load Theory, we shifted our focus from fixing alarms to helping nurses before they enter the A&E, helping them in education to build strong decision-making habits. Inspired by flight and military simulators, we created a safe-to-fail digital game. While we started with physical card ideas, testing led us to build an iPad-friendly browser simulation in Figma Make. The tool uses realistic patient cards with live vitals and ambient sounds, giving students instant clinical feedback so they can build confidence through repeated practice.",
     "results": "This project demonstrated the value of addressing the root causes of cognitive overload rather than its symptoms. By reframing the challenge from reducing false alarms to strengthening decision-making resilience, we created a simulation-based learning experience that helps nursing students develop the mental models required for effective patient prioritization. The concept was positively received by healthcare professionals, highlighting the potential of preventative training interventions in preparing future nurses for the realities of emergency care.",
+    "keyImpact": [
+    "Problem Reframe: Shifted solution focus from alarm fatigue to nurse cognitive overload using Cognitive Load Theory.",
+    "Field Research & Heat Mapping: Analyzed A&E workflows through OLVG observations and heat-map tracking to pinpoint cognitive friction.",
+    "Practitioner Validation: Tested prototype scenarios with practicing nurses, securing strong endorsement from A&E healthcare professionals at OLVG Hospital."
+    ],
     "heroImage": "assets/pictures/WGE_Mockup.jpg",
     "processImages": [
       {
@@ -37,18 +42,25 @@
       }
     ],
     "tags": ["UX Research", "HealthTech", "Service Design", "Gamification"]
+
+    
   },
-  "vistar-media": {
+"vistar-media": {
     "title": "Vistar Media",
-     "subtitle": "Reframing a complex advertising technology through an omnichannel customer journey.",
+    "subtitle": "Reframing a complex advertising technology through an omnichannel customer journey.",
     "role": "UX Researcher, Designer & Strategist",
     "timeline": "6 Months",
     "tools": ["Figma", "Canva", "Atlas.ti", "InDesign"],
     "client": "Vistar Media x Hogeschool Utrecht",
-    "description": "A digital campaign concept designed around Dynamic Creative Optimization (DCO). DCO is a display advertising technology that automatically swaps out visual and copy elements-such as images, headlines, and call-to-actions-in real time based on audience data, location, and context, delivering personalized ad variations at scale.",
+    "description": "A digital campaign concept designed around Dynamic Creative Optimization (DCO). DCO is a display advertising technology that automatically swaps out visual and copy elements such as images, headlines, and call-to-actions—in real time based on audience data, location, and context, delivering personalized ad variations at scale.",
     "challenge": "Vistar Media wanted to increase adoption of Dynamic Creative Optimization in programmatic Digital Out-of-Home advertising. Initial research revealed that low adoption was not caused by a lack of technology, but by a communication gap. Marketers struggled to understand the creative value of DCO and were often overwhelmed by technical messaging. This reframed the challenge from promoting a product to changing perceptions: How might we make Dynamic Creative Optimization feel creatively empowering rather than technically intimidating?",
     "process": "Through stakeholder interviews, competitor analysis, audience research, journey mapping, and multiple rounds of prototype testing, I explored how marketers discover, evaluate, and adopt emerging advertising technologies. Early concepts focused heavily on technology and features, but testing revealed a preference for authentic, human-centered content. These insights led to an omnichannel strategy that leveraged LinkedIn for trust-building, DOOH for awareness, and Instagram Broadcast Channels for deeper engagement. The strategy was iteratively refined through feedback from both target users and industry experts.",
     "results": "Testing validated the overall strategy and confirmed that marketers respond more positively to authentic, educational content than traditional sales-driven messaging. LinkedIn emerged as the most influential channel for B2B decision-making, while Instagram Broadcast Channels were perceived as an innovative way to build ongoing engagement when paired with exclusive, high-value content. The final solution delivered a feasible six-month implementation roadmap, a complete omnichannel communication strategy, and an operational playbook that enabled Vistar Media to position itself as a creative-first leader in Dynamic Creative Optimization.",
+    "keyImpact": [
+      "Strategic Reframe: Repositioned complex DCO ad-tech from a technical tool into an accessible, creative-first omnichannel narrative for B2B marketers.",
+      "Multi-Stage User Research: Conducted 11+ in-depth interviews across target marketers (n=8) and industry experts (n=3), utilizing thematic coding in Atlas.ti to iterate prototype messaging.",
+      "Validated Client Deliverables: Delivered a feasible 6-month implementation roadmap (€15k budget) and complete operational playbook for client execution."
+    ],
     "heroImage": "assets/pictures/Vistar_Media_mockup.jpg",
     "processImages": [ 
       {
@@ -82,6 +94,7 @@
     "challenge": "As a Dutch language learner, I observed a significant friction between classroom instruction-which is often academic, fictional, and detached-and the reality of daily communication. This gap kills motivation. Even when physical workbooks offer real-life exercises, they are rarely used because they feel like an administrative burden, preventing learners from gaining the confidence needed to speak Dutch in daily life.",
     "process": "My design process began with nine months of immersion as a Dutch language student, which allowed me to personally experience the pain points I aimed to solve. I conducted a survey to understand user habits and engaged in stakeholder interviews with teachers, students, and school administrators to define the platform's core requirements. I adopted an agile, experimental approach, bypassing standard no-code builders to vibe code directly in Visual Studio. This allowed me to rapidly test functional prototypes and explore different UI variations in a real-world environment, though the process taught me the importance of finalizing design layouts before prompting AI to ensure code consistency.",
     "results": "The project resulted in a functional, interactive prototype that transitions users from the classroom to the community. The platform features real-world language missions, phonetic guides, and buddy challenges that remove the anxiety of practicing Dutch alone. By integrating a dual-card interface that spotlights local blog posts and community events, GezelligGo acts as a digital bridge, transforming everyday interactions into valuable, low-pressure practice opportunities that build long-term confidence.",
+    "keyImpact": [],
     "heroImage": "assets/pictures/Gezelliggo_mockup.jpg",
     "processImages": [  
       {

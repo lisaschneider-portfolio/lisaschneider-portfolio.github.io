@@ -94,6 +94,11 @@
                 <div><p class="text-xs font-bold text-stone-400 uppercase">Client</p><p id="detail-client" class="font-bold text-sm"></p></div>
             </div>
 
+            <section id="key-impact-section" class="hidden rounded-2xl border-2 border-[#14532d] bg-[#f0fdf4] px-5 py-5 md:px-6 md:py-6 shadow-[4px_4px_0_0_#bbf7d0]">
+                <h2 class="text-sm md:text-base font-black uppercase tracking-wide text-[#14532d]">Key Impact &amp; Highlights</h2>
+                <ul id="key-impact-list" class="mt-4 space-y-3 text-stone-800"></ul>
+            </section>
+
             <div class="space-y-2">
                 <h2 class="text-2xl font-black uppercase">Overview</h2>
                 <p id="project-description" class="body-copy text-stone-700"></p>
@@ -115,6 +120,20 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const projectId = params.get('id');
+
+        function formatKeyImpactPoint(point) {
+            const safePoint = String(point || '').trim();
+            if (!safePoint) return '';
+
+            const separatorIndex = safePoint.indexOf(':');
+            if (separatorIndex === -1) {
+                return `<li class="flex items-start gap-3"><span class="mt-[7px] h-2.5 w-2.5 shrink-0 rounded-full bg-[#166534]"></span><span class="text-[15px] leading-relaxed font-semibold">${safePoint}</span></li>`;
+            }
+
+            const lead = safePoint.slice(0, separatorIndex).trim();
+            const detail = safePoint.slice(separatorIndex + 1).trim();
+            return `<li class="flex items-start gap-3"><span class="mt-[7px] h-2.5 w-2.5 shrink-0 rounded-full bg-[#166534]"></span><span class="text-[15px] leading-relaxed"><strong class="font-extrabold text-stone-900">${lead}:</strong> ${detail}</span></li>`;
+        }
 
         function renderProject(project) {
             console.log("Rendering project:", project); // Check console to see if data arrives
@@ -140,6 +159,18 @@
             document.getElementById('detail-timeline').textContent = project.timeline || "";
             document.getElementById('detail-tools').textContent = Array.isArray(project.tools) ? project.tools.join(', ') : project.tools;
             document.getElementById('detail-client').textContent = project.client || "";
+
+            // Render Key Impact callout
+            const keyImpactSection = document.getElementById('key-impact-section');
+            const keyImpactList = document.getElementById('key-impact-list');
+            const impacts = Array.isArray(project.keyImpact) ? project.keyImpact.filter(Boolean) : [];
+            if (impacts.length > 0) {
+                keyImpactList.innerHTML = impacts.map(formatKeyImpactPoint).join('');
+                keyImpactSection.classList.remove('hidden');
+            } else {
+                keyImpactList.innerHTML = '';
+                keyImpactSection.classList.add('hidden');
+            }
 
             // Render Figma Button
             const cta = document.getElementById('cta-container');
