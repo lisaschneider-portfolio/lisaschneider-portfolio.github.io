@@ -125,35 +125,35 @@
   },
   "sidequest-4": {
     "title": "IKEA Kvartett",
-    "subtitle": "Transforming IKEA shopping into a collectible card game that encourages discovery and connection.",
-    "role": "UX Designer",
-    "description": "Working directly within logistics at IKEA Utrecht provided a clear look at how operational workflows intersect with digital tools. This project bridges physical efficiency with intuitive interface design-stripping away generic language to focus on practical, friction-free interfaces that help team members navigate complex warehouse and inventory tasks smoothly.",
-    "challenge": "I wanted to investigate how gamification could be applied outside of digital products to enhance physical retail experiences. IKEA customers often visit with a specific shopping list, causing them to overlook much of the store's extensive product range. The challenge became: How might we use game mechanics to encourage customers to explore more products while making the shopping experience more engaging and memorable?",
+    "subtitle": "A playful collectible card game bringing store culture and iconic product moments into a take-home game.",
+    "role": "Creative Concept & Design",
     "timeline": "1 Week",
     "tools": "Illustrator, InDesign",
-    "client": "Self-Initiated",
+    "client": "Self-Initiated (Inspired by IKEA Utrecht)",
     "imagePath": "assets/pictures/Kvartett_ikea.jpg",
     "videoPath": "",
-    "process": "Starting from my own interest in gamification and behavioral design, I analyzed the IKEA shopping experience and identified opportunities to encourage exploration through play. I designed a collectible card system that translated IKEA products into game elements, defining categories, attributes, rarity levels, and visual hierarchies. Through several iterations, I refined the balance between gameplay and product information, ensuring the concept remained recognizably IKEA while introducing meaningful game mechanics such as themed collections, favorites, and collectible sets.",
+    "description": "Working part time in logistics at IKEA Utrecht gave me a good overview of store culture. I noticed how much visitors love items that are central to the store experience but cannot officially be taken home, like the iconic yellow shopping bags. This sparked a question: what if customers could collect those store-only artifacts and iconic products as a physical game to take home?",
+    "challenge": "How might we translate the quirks, store navigation, and favorite products of an IKEA trip into a physical souvenir that feels authentic to the brand and fun to play?",
+    "process": "Over a one-week creative sprint, I designed a traditional Quartet card game using IKEA's distinct visual language. I categorized products alongside store-only elements (like yellow bags, food court items or all time favs), using clean graphic hierarchy, custom iconography, and brand-accurate typography so the cards feel genuinely 'IKEA-coded.'",
     "processImages": [
       {
         "src": "assets/pictures/Kvartett_ikea_1.jpg",
-        "caption": "Card system draft translating product data into a playable set."
+        "caption": ""
       },
       {
         "src": "assets/pictures/Kvartett_ikea_2.jpg",
-        "contextText": "Iteration focused on hierarchy, readability, and fast comparison between cards."
+        "contextText": ""
       },
       {
         "src": "assets/pictures/Kvartett_ikea_3.jpg",
-        "caption": "Set-building concept encouraging broader product discovery across the store."
+        "caption": ""
       },
       {
         "src": "assets/pictures/Kvartett_ikea_4.jpg",
-        "contextText": "Final concept balancing playful interaction with practical product information."
+        "contextText": ""
       }
     ],
-    "results": "This self-initiated project demonstrates how gamification can transform a routine shopping trip into a more engaging and memorable experience. By combining familiar IKEA product information with collectible mechanics, the concept encourages customers to discover products they might otherwise overlook while reinforcing brand interaction. Beyond the final design, the project allowed me to explore behavioral design, information architecture, and interaction design in a playful retail context, showcasing my ability to independently identify opportunities and translate them into user-centered concepts.",
-    "tags": ["Product Design", "Service Design", "Gamification"]
-  }
+    "results": "This self-initiated project showcases creative initiative and how everyday workplace observations can spark fun design concepts. It highlights my ability to capture brand identity, apply visual hierarchy, and design lighthearted interactions driven by real human observation.",
+    "tags": ["Concept Design", "Visual Identity", "Gamification"]
+}
 }

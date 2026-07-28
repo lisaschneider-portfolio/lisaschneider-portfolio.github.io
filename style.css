@@ -576,6 +576,14 @@ body[data-theme='accessible'] #project-detail a.bg-\[\#1234db\] {
     text-decoration: none !important;
 }
 
+/* Keep the project Figma CTA at the same visual size in both themes. */
+body[data-theme='accessible'] #project-detail #cta-container a {
+    border-width: 0 !important;
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+    line-height: 1.5rem !important;
+}
+
 body[data-theme='accessible'] .project-card h1,
 body[data-theme='accessible'] .project-card h2,
 body[data-theme='accessible'] .project-card h3,
@@ -598,6 +606,27 @@ body[data-theme='accessible'] #project-tags span {
     color: #ffffff !important;
     border-color: #ffffff !important;
     border-width: 2px !important;
+}
+
+body[data-theme='accessible'] .project-status-ribbon {
+    color: #1234db !important;
+    background: #ffffff !important;
+    border-color: #1234db !important;
+}
+
+/* Keep the Key Impact callout readable in accessible mode. */
+body[data-theme='accessible'] #project-detail #key-impact-section {
+    background: #ffffff !important;
+    border-color: #1234db !important;
+    box-shadow: 4px 4px 0 0 #1234db !important;
+}
+
+body[data-theme='accessible'] #project-detail #key-impact-section h2,
+body[data-theme='accessible'] #project-detail #key-impact-section ul,
+body[data-theme='accessible'] #project-detail #key-impact-section li,
+body[data-theme='accessible'] #project-detail #key-impact-section span,
+body[data-theme='accessible'] #project-detail #key-impact-section strong {
+    color: #1234db !important;
 }
 
 body[data-theme='accessible'] .project-card .relative.h-72,
