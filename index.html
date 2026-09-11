@@ -320,11 +320,14 @@
 
     </script>
     <script>
-        // Clean the URL bar after recording analytics
-        if (window.history.replaceState && window.location.search.includes('utm_')) {
-            const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-            window.history.replaceState({}, document.title, cleanUrl);
-        }
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (window.history.replaceState && window.location.search.includes('utm_')) {
+                    const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({}, document.title, cleanUrl);
+                }
+            }, 300); // 300ms delay gives Umami ample time to capture the query params
+        });
     </script>
     <footer class="w-full mt-12 py-12 flex flex-col items-center space-y-1 border-t border-stone-200/40">
         <div class="footer-brand text-center text-stone-800 select-none">
