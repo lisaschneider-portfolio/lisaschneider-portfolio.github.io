@@ -1,5 +1,5 @@
 {
-  "sidequest-1": {
+  "welcome-to-the-jungle": {
      "title": "Welcome to the jungle",
     "subtitle": "An immersive installation that transforms a static canvas into a dynamic narrative window, encouraging viewers to connect with art beyond its context.",
     "role": "Creative Research & Designer",
@@ -40,7 +40,7 @@
 
     "results": "The final installation creates an immersive environment where the painted elements come to life, inviting the audience to form their own interpretations of the artwork. By showing that stories can be communicated through movement and audio in the absence of traditional descriptions, the project encourages museum-goers to continue exploring unfamiliar art with greater confidence." 
   },
-  "sidequest-2": {
+  "borderland-subversion": {
       "title": "Borderland Subversion",
     "subtitle": "An immersive art installation challenging perspectives on immigration and the manipulative nature of contextual information.",
     "role": "Creative Research, Concept Development and Design",
@@ -99,7 +99,7 @@
     "results": "The final installation realized a two-sided immersive experience that uses contrasting colors, orange and blue, to represent two worlds without imposing moral judgment. By guiding visitors through a curtain gap using animated zipper and stripe effects, the installation prompted them to physically move between perspectives, mirroring the difficult choices faced by migrants. Feedback from the final exhibition indicated that the concept was clear and effective, with the simplicity of the design cited as a key strength. The project met its primary goal by encouraging visitors to examine how context shapes decisions and to leave with a more critical understanding of the complex, systemic, and emotional realities of emigration.", 
     "tags": ["Projection Mapping", "Immersive Art Installation", "Interaction Design"]
   },
-  "sidequest-3": {
+  "techno-albert-heijn": {
       "title": "Techno Albert Heijn",
     "subtitle": "A sound landscape is a short audio piece where you construct a new audio fragment using existing individual sounds, self-recorded sounds, and music. I accomplished this by making decisions about the timing and applied effects on all the fragments. Here is the end result that you can listen to.",
     "audioUrl": "assets/videos/Soundscape.mp3",
@@ -123,7 +123,7 @@
     "results": "The final result is an immersive audio piece that reframes a shopping trip as an electronic listening experience. The project expanded my use of production techniques such as auto-filters and sidechaining to shape texture, pacing, and clarity. It also strengthened my ability to build narrative and mood through sound design alone.", 
     "tags": ["Audio Design"]
   },
-  "sidequest-4": {
+  "ikea-kvartett": {
     "title": "IKEA Kvartett",
     "subtitle": "A playful collectible card game bringing store culture and iconic product moments into a take-home game.",
     "role": "Creative Concept & Design",

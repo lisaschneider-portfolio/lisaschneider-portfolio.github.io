@@ -11,6 +11,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playpen+Sans:wght@600;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>
+        (() => {
+            const legacyIds = new Map([
+                ['sidequest-1', 'welcome-to-the-jungle'],
+                ['sidequest-2', 'borderland-subversion'],
+                ['sidequest-3', 'techno-albert-heijn'],
+                ['sidequest-4', 'ikea-kvartett']
+            ]);
+            const url = new URL(window.location.href);
+            const slug = legacyIds.get(url.searchParams.get('id'));
+            if (slug) {
+                url.searchParams.set('id', slug);
+                window.history.replaceState(window.history.state, '', url.href);
+            }
+        })();
+    </script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="d68a8428-d131-4abf-94fd-e06349f89758" data-domains="lisaschneider-portfolio.github.io"></script>
 </head>
 <body class="min-h-screen bg-[#f9f7f2] text-[#1a1a1a] font-inter">

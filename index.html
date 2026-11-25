@@ -311,7 +311,7 @@
 
                 const allowedProjects = ['vistar-media', 'wie-gaat-eerst'];
                 const featuredProjects = allProjects.filter(item => allowedProjects.includes(item.id));
-                const ikeaSidequest = allSidequests.find(item => item.id === 'sidequest-4');
+                const ikeaSidequest = allSidequests.find(item => item.id === 'ikea-kvartett');
 
                 createProjectCards(ikeaSidequest ? [...featuredProjects, ikeaSidequest] : featuredProjects);
                 updateMetadata(0);
